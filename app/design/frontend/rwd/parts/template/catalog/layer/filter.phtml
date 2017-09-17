@@ -32,7 +32,22 @@
  */
 ?>
 
-<ol>
+
+<?php foreach ($this->getItems() as $_item): ?>
+<div class="checkbox">
+    <label>
+        <input type="checkbox" onclick="callAjax(this.value);" value="<?php echo $this->urlEscape($_item->getUrl()) ?>">
+        <?php echo $_item->getLabel(); ?>
+    </label>
+
+  <!--  <a href="<?php /*echo $this->urlEscape($_item->getUrl()) */?>">
+        <?php /*echo $_item->getLabel() */?></a>-->
+</div>
+<?php endforeach ?>
+
+
+
+<ol style="display: none;">
 <?php foreach ($this->getItems() as $_item): ?>
     <li>
         <?php if ($_item->getCount() > 0): ?>
@@ -53,3 +68,24 @@
     </li>
 <?php endforeach ?>
 </ol>
+
+<script>
+
+    function callAjax(url)
+    {
+        jQuery.ajax({
+            'type': 'GET',
+            'url': url,
+
+            'success': function(response)
+            {
+                var result = jQuery(response).find('.col-main');
+                console.log(result);
+                jQuery(".col-main").html(" ");
+                jQuery(".col-main").html(result);
+
+            }
+        });
+    }
+
+</script>

@@ -31,8 +31,59 @@
  * @see Mage_Catalog_Block_Layer_View
  */
 ?>
+
 <?php if($this->canShowBlock()): ?>
-<div  class="block block-layered-nav<?php if (!$this->getLayer()->getState()->getFilters()): ?> block-layered-nav--no-filters<?php endif; ?>">
+
+    <div class="col-sm-3 col-lg-3">
+        <!-- normal collapsible navbar markup -->
+        <div class="sidenav-cus">
+            <div class="child1-sidenav"> <a>Home</a> <i class="fa fa-arrow-right"></i> <a>Brands</a> <i class="fa fa-arrow-right"></i> <a>Maruthi</a> <i class="fa fa-arrow-right"></i> <a>800</a> </div>
+            <div class="child1-sidenav"> <a href="#"><i class="fa fa-filter fa-2x" aria-hidden="true"></i>&nbsp;<b style="font-size: 20px !important">Filter Your Search</b> </a> </div>
+            <?php $_filters = $this->getFilters() ?>
+            <?php $i = 2;?>
+            <?php foreach ($_filters as $_filter): ?>
+
+                <?php if($_filter->getItemsCount()): ?>
+                    <div class="child<?php echo $i?>-sidenav">
+                        <h4 style="float: left"><?php echo $this->__($_filter->getName()) ?></h4>
+                        <div class="clearfix"></div>
+                        <?php echo $_filter->getHtml() ?>
+                    </div>
+                <?php endif; ?>
+             <?php $i++;?>
+            <?php endforeach; ?>
+        </div>
+        <hr>
+    </div>
+
+<?php endif; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php if($this->canShowBlock()): ?>
+<div style="display: none;" class="block block-layered-nav<?php if (!$this->getLayer()->getState()->getFilters()): ?> block-layered-nav--no-filters<?php endif; ?>">
     <div class="block-title">
         <strong><span><?php echo $this->__('Shop By') ?></span></strong>
     </div>

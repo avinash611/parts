@@ -115,13 +115,16 @@ Category layered navigation layout
     <catalog_category_layered translate="label">
         <label>Catalog Category (Anchor)</label>
         <reference name="left_first">
-            <block type="catalog/layer_view" name="catalog.leftnav" after="currency" template="catalog/layer/view.phtml">
-                <block type="core/text_list" name="catalog.leftnav.state.renderers" as="state_renderers" />
-            </block>
+
         </reference>
         <reference name="content">
+            <!--<block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>-->
+
             <block type="catalog/category_view" name="category.products" template="catalog/category/view.phtml">
                 <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
+                    <block type="catalog/layer_view" as="layerview" name="catalog.leftnav" after="currency" template="catalog/layer/view.phtml">
+                        <block type="core/text_list" name="catalog.leftnav.state.renderers" as="state_renderers" />
+                    </block>
                     <block type="core/text_list" name="product_list.name.after" as="name.after" />
                     <block type="core/text_list" name="product_list.after" as="after" />
                     <!-- <action method="addReviewSummaryTemplate"><type>default</type><template>review/helper/su.phtml</template></action> -->

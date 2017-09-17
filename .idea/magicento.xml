@@ -2,6 +2,7 @@
 <project version="4">
   <component name="MagicentoSettings">
     <option name="pathToMage" value="$PROJECT_DIR$/app/Mage.php" />
+    <option name="enabled" value="false" />
     <option name="phpEnabled" value="true" />
     <option name="useHttp" value="false" />
     <option name="pathToPhp" value="$path$/php.exe" />
