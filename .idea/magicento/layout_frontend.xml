@@ -555,7 +555,7 @@ Default layout, loads most of the pages
                 <action method="addJs"><script>lib/jquery/jquery.min.js</script></action>
                 <action method="addJs"><script>lib/jquery/noconflict.js</script></action>
 
-                <action method="addItem"><type>skin_js</type><name>js/bootstrap-3.3.7.js</name></action>
+                <action method="addItem"><type>skin_js</type><name>js/bootstrap.min.js</name></action>
                 <action method="addItem"><type>skin_js</type><name>js/thumbelina.js</name></action>
                 <action method="addItem"><type>skin_js</type><name>js/contentslider.js</name></action>
                 <!--<action method="addItem"><type>skin_js</type><name>js/bootstrap.js</name></action>-->
@@ -593,21 +593,15 @@ Default layout, loads most of the pages
                 <action method="addItem"><type>skin_js</type><name>js/lib/jquery.cycle2.swipe.min.js</name></action>
                 <action method="addItem"><type>skin_js</type><name>js/slideshow.js</name></action>
                 <action method="addItem"><type>skin_js</type><name>js/lib/imagesloaded.js</name></action>
-
-
-                <action method="addLinkRel"><rel>stylesheet</rel><href>//fonts.googleapis.com/css?family=Raleway:300,400,500,700,600</href></action>
                 <action method="addItem"><type>skin_js</type><name>js/minicart.js</name></action>
 
                 <!-- Add stylesheets with no media queries for use in IE 8 and below -->
-                <action method="addItem"><type>skin_css</type><name>css/styles-ie8.css</name><params/><if><![CDATA[ (lte IE 8) & (!IEMobile)]]></if></action>
-                <action method="addItem"><type>skin_css</type><name>css/madisonisland-ie8.css</name><params/><if><![CDATA[ (lte IE 8) & (!IEMobile)]]></if></action>
 
-
-                <action method="addItem"><type>skin_css</type><name>css/bootstrap-3.3.7.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
-                <action method="addItem"><type>skin_css</type><name>css/home.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
-                <action method="addItem"><type>skin_css</type><name>css/contentslider.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
+                <action method="addItem"><type>skin_css</type><name>css/bootstrap.min.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
+                <action method="addItem"><type>skin_css</type><name>css/style.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
                 <action method="addItem"><type>skin_css</type><name>css/font-awesome.min.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
                 <action method="addItem"><type>skin_css</type><name>css/thumbelina.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
+                <action method="addItem"><type>skin_css</type><name>css/contentslider.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
 
 
                 <action method="addItem"><type>skin_css</type><name>css/bootstrap.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
