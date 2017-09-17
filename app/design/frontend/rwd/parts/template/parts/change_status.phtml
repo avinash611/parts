@@ -1,0 +1,215 @@
+<?php $skinUrl =Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd/parts/images/'?>
+
+<div class="menu-bar-distributor" style="background-color: #eeeeee;margin-top: 50px">
+    <div class="container menubar-dis" style="padding: 10px !important;">
+        <div class="col-md-8">
+            <a href="#"><i style="font-size:18px" class="fa fa-truck"></i> Pending Orders</a>
+            <a href="#"><i style="font-size:18px" class="fa fa-dropbox"></i> My Products</a>
+            <a href="#"><i style="font-size:18px" class="fa fa-tags"></i> My Offers</a>
+            <a href="#"><i style="font-size:18px" class="fa fa-money"></i> My Balance</a>
+            <a href="#"><i style="font-size:18px" class="fa fa-history"></i> Purchase History</a>
+        </div>
+
+        <div class="sub-menu" style="background-color:;">
+            <a style="color: #fda929" href="#" class="sub-a"><i style="font-size:20px" class="fa fa-bell-o"></i> New Orders : 100</a>
+        </div>
+    </div>
+</div>
+<div class="menu-bar-pro" style="background-color: #fc6e21;padding: 40px !important">
+    <div class="container menubar-pro text-center" > <a href="#">Products Sold : 1000</a> <a href="#">Products Left : 240</a> <a href="#">Sales Made : Rs. 2,34,000</a> </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-lg-3">
+            <!-- normal collapsible navbar markup -->
+            <div class="sidenav-cus">
+                <div class="child4-sidenav">
+                    <h4 style="float: left">Filter Products</h4>
+                    <div class="clearfix"></div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="" checked>
+                            All</label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="">
+                            New orders</label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="">
+                            Dispatched</label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="">
+                            In transit</label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="">
+                            Out for delivery</label>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="col-sm-9 col-lg-9 table-section table-responsive" style="margin-top: 10px !important">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td data-toggle="collapse" data-target="#demo1" class="accordion-toggle"><button class="btn btn-default btn-xs"><span class="fa fa-plus-circle"></span></button>
+                        Order Id:12345</td>
+                    <td><button style="background-color: #1479b3;width: 150px" type="button" class="btn btn-success">Payment received</button></td>
+                    <td><button class="btn btn-default btn-xs"><span class="fa fa-plus-circle"></span></button>
+                        Change status</td>
+                    <td data-toggle="collapse" data-target="#demo1" class="accordion-toggle"><button class="btn btn-default btn-xs"><span class="fa fa-plus-circle"></span></button>
+                        Shipping address</td>
+                    <td>10.30pm, 23-04-2017</td>
+                </tr>
+                <tr>
+                    <td colspan="12" class="hiddenRow"><div class="accordian-body collapse" id="demo1">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <table class="table">
+                                        <thead style="background-color: #dfdfdf">
+                                        <tr>
+                                            <th>Items</th>
+                                            <th>Quantity</th>
+                                            <th>Price</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody style="background-color: #f6f6f6">
+                                        <tr>
+                                            <td><div class="col-md-8"> <img style="float: left" src="<?php echo $skinUrl?>products/product-img.png" width="30" height="30"/>
+                                                    <div class="text" style="float: right">
+                                                        <p>OIL FILTER FOR 100 GC</p>
+                                                        <p style="line-height: 1px">OPTIMAL</p>
+                                                    </div>
+                                                </div></td>
+                                            <td>1000</td>
+                                            <td style="color: #fc6e21">Rs. 2045</td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="col-md-8"> <img style="float: left" src="<?php echo $skinUrl?>products/product-img.png" width="30" height="30"/>
+                                                    <div class="text" style="float: right">
+                                                        <p>OIL FILTER FOR 100 GC</p>
+                                                        <p style="line-height: 1px">OPTIMAL</p>
+                                                    </div>
+                                                </div></td>
+                                            <td>1000</td>
+                                            <td style="color: #fc6e21">Rs. 2045</td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="col-md-8"> <img style="float: left" src="<?php echo $skinUrl?>products/product-img.png" width="30" height="30"/>
+                                                    <div class="text" style="float: right">
+                                                        <p>OIL FILTER FOR 100 GC</p>
+                                                        <p style="line-height: 1px">OPTIMAL</p>
+                                                    </div>
+                                                </div></td>
+                                            <td>1000</td>
+                                            <td style="color: #fc6e21">Rs. 2045</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-4" style="margin-top: 100px !important">
+                                    <label class="control-label" for="total">Total:</label>
+                                    <input type="text" class="form-control" placeholder="Total:" disabled>
+                                </div>
+                            </div>
+                        </div></td>
+                </tr>
+                <tr>
+                    <td data-toggle="collapse" data-target="#demo2" class="accordion-toggle"><button class="btn btn-default btn-xs"><span class="fa fa-plus-circle"></span></button>
+                        Order Id:12345</td>
+                    <td><button style="background-color: #149bb3;width: 150px" type="button" class="btn btn-success">Dispatched</button></td>
+                    <td><button class="btn btn-default btn-xs"><span class="fa fa-plus-circle"></span></button>
+                        Change status</td>
+                    <td data-toggle="collapse" data-target="#demo2" class="accordion-toggle"><button class="btn btn-default btn-xs"><span class="fa fa-plus-circle"></span></button>
+                        Shipping address</td>
+                    <td>10.30pm, 23-04-2017</td>
+                </tr>
+                <tr>
+                    <td colspan="12" class="hiddenRow"><div class="accordian-body collapse" id="demo2">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <table class="table">
+                                        <thead style="background-color: #dfdfdf">
+                                        <tr>
+                                            <th>Items</th>
+                                            <th>Quantity</th>
+                                            <th>Price</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody style="background-color: #f6f6f6">
+                                        <tr>
+                                            <td><div class="col-md-8"> <img style="float: left" src="<?php echo $skinUrl?>products/product-img.png" width="30" height="30"/>
+                                                    <div class="text" style="float: right">
+                                                        <p>OIL FILTER FOR 100 GC</p>
+                                                        <p style="line-height: 1px">OPTIMAL</p>
+                                                    </div>
+                                                </div></td>
+                                            <td>1000</td>
+                                            <td style="color: #fc6e21">Rs. 2045</td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="col-md-8"> <img style="float: left" src="<?php echo $skinUrl?>products/product-img.png" width="30" height="30"/>
+                                                    <div class="text" style="float: right">
+                                                        <p>OIL FILTER FOR 100 GC</p>
+                                                        <p style="line-height: 1px">OPTIMAL</p>
+                                                    </div>
+                                                </div></td>
+                                            <td>1000</td>
+                                            <td style="color: #fc6e21">Rs. 2045</td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="col-md-8"> <img style="float: left" src="<?php echo $skinUrl?>products/product-img.png" width="30" height="30"/>
+                                                    <div class="text" style="float: right">
+                                                        <p>OIL FILTER FOR 100 GC</p>
+                                                        <p style="line-height: 1px">OPTIMAL</p>
+                                                    </div>
+                                                </div></td>
+                                            <td>1000</td>
+                                            <td style="color: #fc6e21">Rs. 2045</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-4" style="margin-top: 100px !important">
+                                    <label class="control-label" for="total">Total:</label>
+                                    <input type="text" class="form-control" placeholder="Total:" disabled>
+                                </div>
+                            </div>
+                        </div></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!--<div class="container-fluid parts-section" style="background-color: #fc6e21;margin-top: 80px">
+    <div class="col-md-4 media"> <span class="media-left"> <img src="<?php /*echo $skinUrl*/?>footertop1.png" alt="" style="width:100px;height:50px"> </span>
+        <div class="media-body">
+            <h4 class="media-heading">SECURE DELIVERY</h4>
+            <p style="font-size: 12px" class="media-heading">Best logistics services are used for a <br>
+                secure transit.</p>
+        </div>
+    </div>
+    <div class="col-md-4 media"> <span class="media-left"> <img src="<?php /*echo $skinUrl*/?>footertop2.png" alt="" style="width:40px;height:50px"> </span>
+        <div class="media-body">
+            <h4 class="media-heading">HELPLINE</h4>
+            <p style="font-size: 12px" class="media-heading">Our helpline is open 12hours/day<br>
+                See phone numbers </p>
+        </div>
+    </div>
+    <div class="col-md-4 media" style="margin-bottom: 80px !important"> <span class="media-left"> <img src="<?php /*echo $skinUrl*/?>footertop3.png" alt="" style="width:70px;height:30px"> </span>
+        <div class="media-body">
+            <h4 class="media-heading">PAYMENT OPTIONS</h4>
+            <p style="font-size: 12px" class="media-heading">Multiple payment options like Net <br>
+                banking, Credit cards, Debit cards<br>
+                and Cash on delivery</p>
+        </div>
+    </div>
+</div>-->

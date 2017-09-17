@@ -1,0 +1,487 @@
+<?php $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd/parts/images/'?>
+
+<div class="container-fluid" style="background-color: #efefef">
+    <div class="container" style="margin-top: 80px !important">
+        <div class="row">
+            <div class="col-md-10 col-sm-10 col-md-offset-1">
+                <div class="input-group">
+                    <!--<div class="input-group-btn search-panel">
+                        <button style="height:50px;width: 150px" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <span id="search_concept">SELECT A BRAND</span> <span class="caret"></span> </button>
+                        <ul id="custom-dropdown" class="dropdown-menu" role="menu">
+                            <li><a href="#contains">TVS</a></li>
+                            <li><a href="#its_equal">TRIUMPH</a></li>
+                            <li><a href="#greather_than">HONDA</a></li>
+                        </ul>
+                    </div>
+                    <input type="hidden" name="search_param" value="all" id="search_param">
+                    <input style="height:50px" type="text" class="form-control" name="x" placeholder="Type the part name, part number or model name">
+          <span class="input-group-btn">
+          <button style="height:50px;width: 150px" class="btn btn-success" type="button">SEARCH</button>
+          </span>-->
+                </div>
+            </div>
+        </div>
+        <div id="slider2" style="margin-top: 6px">
+            <div class="thumbelina-but horiz left">&#706;</div>
+            <ul id="image-data">
+                <li><a href="product-listing.html"><img onmouseover="show()"  src="<?php echo $skinUrl?>honda.png"></a></li>
+                <li><a href="product-listing.html"><img onmouseover="show()" src="<?php echo $skinUrl?>suzuki.png"></a></li>
+                <li><a href="product-listing.html"><img onmouseover="show()"  src="<?php echo $skinUrl?>triumph.png"></a></li>
+                <li><a href="product-listing.html"><img onmouseover="show()"  src="<?php echo $skinUrl?>hero.png"></a></li>
+                <li><a href="product-listing.html"><img onmouseover="show()"  src="<?php echo $skinUrl?>ktm.png"></a></li>
+                <li><a href="product-listing.html"><img onmouseover="show()"  src="<?php echo $skinUrl?>um.png"></a></li>
+                <li><a href="product-listing.html"><img onmouseover="show()"  src="<?php echo $skinUrl?>tvs.png"></a></li>
+                <li><a href="product-listing.html"><img onmouseover="show()"  src="<?php echo $skinUrl?>harley.png"></a></li>
+                <li><a href="product-listing.html"><img onmouseover="show()"  src="<?php echo $skinUrl?>Yamaha.png"></a></li>
+                <li><a href="product-listing.html"><img onmouseover="show()"  src="<?php echo $skinUrl?>bajaj.png"></a></li>
+                <li><a href="product-listing.html"><img onmouseover="show()"  src="<?php echo $skinUrl?>bmw.png"></a></li>
+            </ul>
+            <div class="thumbelina-but horiz right">&#707;</div>
+        </div>
+        <div style="height: 150px !important;background-color: #ffffff;border: 1px solid #efefef;margin-bottom: 20px">
+            <div style="line-height: 2em;font-size: 14px;margin-top: 15px" class="col-md-3 ">
+                <ul id="test">
+                    <li>DIO</li>
+                    <li>ACTIVA</li>
+                    <li>CBR 150</li>
+                    <li>CBR 250</li>
+                </ul>
+            </div>
+            <div style="line-height: 2em;font-size: 14px;margin-top: 15px" class="col-md-3 hidden-xs">
+                <ul id="test2">
+                    <li>DIO</li>
+                    <li>ACTIVA</li>
+                    <li>CBR 150</li>
+                    <li>CBR 250</li>
+                </ul>
+            </div>
+            <div style="line-height: 2em;font-size: 14px;margin-top: 15px" class="col-md-3 hidden-xs ">
+                <ul id="test3">
+                    <li>DIO</li>
+                    <li>ACTIVA</li>
+                    <li>CBR 150</li>
+                    <li>CBR 250</li>
+                </ul>
+            </div>
+            <div style="line-height: 2em;font-size: 14px;margin-top: 15px" class="col-md-3 hidden-xs ">
+                <ul id="test4">
+                    <li>DIO</li>
+                    <li>ACTIVA</li>
+                    <li>CBR 150</li>
+                    <li>CBR 250</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="container"> <br>
+        <h2>Parts You Recently Searched</h2>
+        <div class="carousel slide" id="myCarousel">
+            <nav>
+                <ul class="control-box pager">
+                    <li><a data-slide="prev" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+                    <li><a data-slide="next" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                </ul>
+            </nav>
+            <!-- /.control-box -->
+            <div class="carousel-inner" style="margin-left: -20px">
+                <div class="item active">
+                    <ul class="thumbnails">
+                        <li class="col-sm-3" style="">
+                            <div class="card" style="background-color: #efefef">
+                                <div class="card-custom"> <a href="product-listing.html"><img  class="cardimage" src="<?php echo $skinUrl?>recent1.png" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="product-desc.html"><h4 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-sm-3">
+                            <div class="card" style="background-color: #efefef">
+                                <div class="card-custom"> <a href="product-listing.html"><img class="cardimage" src="<?php echo $skinUrl?>recent1.png" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="product-desc.html"><h4 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-sm-3">
+                            <div class="card" style="background-color: #efefef">
+                                <div class="card-custom"> <a href="product-listing.html"><img class="cardimage" src="<?php echo $skinUrl?>recent1.png" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="product-desc.html"><h4 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-sm-3">
+                            <div class="card" style="background-color: #efefef">
+                                <div class="card-custom"> <a href="product-listing.html"><img class="cardimage" src="<?php echo $skinUrl?>recent1.png" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="product-desc.html"><h4 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /Slide1 -->
+                <div class="item">
+                    <ul class="thumbnails">
+                        <li class="col-sm-3">
+                            <div class="card" style="background-color: #efefef">
+                                <div class="card-custom"> <a href="product-listing.html"><img class="cardimage" src="<?php echo $skinUrl?>recent1.png" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="product-desc.html"><h4 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-sm-3">
+                            <div class="card" style="background-color: #efefef">
+                                <div class="card-custom"> <a href="product-listing.html"><img class="cardimage" src="<?php echo $skinUrl?>recent1.png" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="product-desc.html"><h4 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-sm-3">
+                            <div class="card" style="background-color: #efefef">
+                                <div class="card-custom"> <a href="product-listing.html"><img class="cardimage" src="<?php echo $skinUrl?>recent1.png" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="product-desc.html"><h4 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-sm-3">
+                            <div class="card" style="background-color: #efefef">
+                                <div class="card-custom"> <a href="product-listing.html"><img class="cardimage" src="<?php echo $skinUrl?>recent1.png" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="product-desc.html"><h4 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /Slide2 -->
+            </div>
+        </div>
+        <!-- /#myCarousel -->
+    </div>
+    <!-- /.container -->
+</div>
+<div class="container-fluid" style="background-color: #efefef">
+    <div class="container"> <br>
+        <h2>Parts you bought in the past</h2>
+        <div class="carousel slide" id="myCarousel1">
+            <nav>
+                <ul class="control-box pager">
+                    <li><a data-slide="prev" href="#myCarousel1" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+                    <li><a data-slide="next" href="#myCarousel1" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                </ul>
+            </nav>
+            <!-- /.control-box -->
+            <div class="carousel-inner" style="margin-left: -20px">
+                <div class="item active">
+                    <ul class="thumbnails">
+                        <li class="col-sm-3">
+                            <div class="card" style="background-color: #ffffff">
+                                <div class="card-custom"> <a href="product-listing.html"><img  class="cardimage" src="<?php echo $skinUrl?>recent1.png" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="product-desc.html"><h4 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-sm-3">
+                            <div class="card" style="background-color: #ffffff">
+                                <div class="card-custom"> <a href="product-listing.html"><img class="cardimage" src="<?php echo $skinUrl?>recent1.png" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="product-desc.html"><h4 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-sm-3">
+                            <div class="card" style="background-color: #ffffff">
+                                <div class="card-custom"> <a href="product-listing.html"><img class="cardimage" src="<?php echo $skinUrl?>recent1.png" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="product-desc.html"><h4 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-sm-3">
+                            <div class="card" style="background-color: #ffffff">
+                                <div class="card-custom"> <a href="product-listing.html"><img class="cardimage" src="<?php echo $skinUrl?>recent1.png" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="product-desc.html"><h4 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /Slide1 -->
+                <div class="item">
+                    <ul class="thumbnails">
+                        <li class="col-sm-3">
+                            <div class="card" style="background-color: #ffffff">
+                                <div class="card-custom"> <a href="product-listing.html"><img class="cardimage" src="<?php echo $skinUrl?>recent1.png" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="product-desc.html"><h4 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-sm-3">
+                            <div class="card" style="background-color: #ffffff">
+                                <div class="card-custom"> <a href="product-listing.html"><img class="cardimage" src="<?php echo $skinUrl?>recent1.png" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="product-desc.html"><h4 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-sm-3">
+                            <div class="card" style="background-color: #ffffff">
+                                <div class="card-custom"> <a href="product-listing.html"><img class="cardimage" src="<?php echo $skinUrl?>recent1.png" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="product-desc.html"><h4 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-sm-3">
+                            <div class="card" style="background-color: #ffffff">
+                                <div class="card-custom"> <a href="product-listing.html"><img class="cardimage" src="<?php echo $skinUrl?>recent1.png" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="product-desc.html"><h4 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /Slide2 -->
+            </div>
+        </div>
+        <!-- /#myCarousel -->
+    </div>
+    <!-- /.container -->
+</div>
+<div class="container-fluid" style="background-color: #ffffff;">
+    <div class="container mobile-parts">
+        <h2 class="text-header" style="margin-bottom: 30px !important">Frequently searched parts</h2>
+        <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl?>ra1.png" class="img-responsive"></a>
+            <p>Lubricants</p>
+        </div>
+        <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl?>ra2.png" class="img-responsive"></a>
+            <p>Engine</p>
+        </div>
+        <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl?>ra3.png" class="img-responsive"></a>
+            <p>Electric components</p>
+        </div>
+        <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl?>ra1.png" class="img-responsive"></a>
+            <p>Lubricants</p>
+        </div>
+        <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl?>ra3.png" class="img-responsive"></a>
+            <p>Electric components</p>
+        </div>
+        <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl?>ra2.png" class="img-responsive"></a>
+            <p>Engine</p>
+        </div>
+        <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl?>ra5.png" class="img-responsive"></a>
+            <p>Exhaust system</p>
+        </div>
+        <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl?>ra6.png" class="img-responsive"></a>
+            <p>Suspension</p>
+        </div>
+        <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl?>ra1.png" class="img-responsive"></a>
+            <p>Lubricants</p>
+        </div>
+        <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl?>ra4.png" class="img-responsive"></a>
+            <p>Universal</p>
+        </div>
+        <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl?>ra5.png" class="img-responsive"></a>
+            <p>Exhaust system</p>
+        </div>
+        <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl?>ra1.png" class="img-responsive"></a>
+            <p>Lubricants</p>
+        </div>
+    </div>
+
+    <!-- /#myCarousel -->
+</div>
+<div class="container-fluid" style="background-color: #ffffff;">
+    <div class="container offers-section">
+        <h2 class="text-header2" style="margin-bottom: 30px !important">Offers that save you a lot of money</h2>
+        <div class="offers"> <span> <img src="<?php echo $skinUrl?>offer1.png"> <img src="<?php echo $skinUrl?>offer2.png"> <img src="<?php echo $skinUrl?>offer3.png"> <img src="<?php echo $skinUrl?>offer4.png"> </span> </div>
+    </div>
+
+    <!-- /#myCarousel -->
+</div>
+<div class="container">
+    <h2>Recently added parts</h2>
+</div>
+<div class="container-fluid parts-section" style="margin-top: 30px;background-color: #efefef">
+    <div class="col-md-3 media1" style="margin-bottom: 30px !important"> <span class="media-left">
+   <a href="product-listing.html"><img src="<?php echo $skinUrl?>part1.png" alt="" style="width:100px !important;height:100px !important"></a> </span>
+        <div class="media-body" style="border-right: 1px solid #000000">
+            <a href="product-desc.html"><p style="font-size: 13px" class="media-heading1">Hella Chrome <br>
+                    Twin Tone Horn</p></a>
+            <p class="media-heading" style="color: #fd8b25">₹ 1470</p>
+            <div class="vdivider"></div>
+        </div>
+    </div>
+    <div class="col-md-3 media1"> <span class="media-left"> <a href="product-listing.html"><img src="<?php echo $skinUrl?>part1.png" alt="" style="width:100px !important;height:100px !important"></a> </span>
+        <div class="media-body" style="border-right: 1px solid #000000">
+            <a href="product-desc.html"><p style="font-size: 13px" class="media-heading1">RIBBED BELT-V</p></a>
+            <p class="media-heading" style="color: #fd8b25">₹ 234</p>
+        </div>
+    </div>
+    <div class="col-md-3 media1"> <span class="media-left"> <a href="product-listing.html"><img src="<?php echo $skinUrl?>part1.png" alt="" style="width:100px !important;height:100px !important"> </a></span>
+        <div class="media-body" style="border-right: 1px solid #000000">
+            <a href="product-desc.html"><p style="font-size: 13px" class="media-heading1">POWER CABLE <br>
+                    ZUMO 660LM</p></a>
+            <p class="media-heading" style="color: #fd8b25">₹ 1470</p>
+        </div>
+    </div>
+    <div class="col-md-3 media1">
+        <a href="product-listing.html"><h5>SEE ALL RECENTLY ADDED PARTS</h5></a>
+        <button class="button button5">SHOP NOW</button>
+    </div>
+</div>
+
+
+<script>
+
+    jQuery(document).ready(function(e){
+        jQuery('.search-panel .dropdown-menu').find('a').click(function(e) {
+            e.preventDefault();
+            var param = jQuery(this).attr("href").replace("#","");
+            var concept = jQuery(this).text();
+            jQuery('.search-panel span#search_concept').text(concept);
+            jQuery('.input-group #search_param').val(param);
+        });
+    });
+</script>
+<script>
+    jQuery(function(){
+
+        jQuery('#slider1').Thumbelina({
+            $bwdBut:jQuery('#slider1 .left'),    // Selector to left button.
+            $fwdBut:jQuery('#slider1 .right')    // Selector to right button.
+        });
+
+        jQuery('#slider2').Thumbelina({
+            $bwdBut:jQuery('#slider2 .left'),    // Selector to left button.
+            $fwdBut:jQuery('#slider2 .right')    // Selector to right button.
+        });
+
+        jQuery('#slider3').Thumbelina({
+            orientation:'vertical',         // Use vertical mode (default horizontal).
+            $bwdBut:jQuery('#slider3 .top'),     // Selector to top button.
+            $fwdBut:jQuery('#slider3 .bottom')   // Selector to bottom button.
+        });
+
+    })
+</script>
+<style type="text/css">
+    #slider2 {
+        position: relative;
+        width: 100%;
+        height: 120px;
+    }
+    #slider1 {
+        position: relative;
+        margin-left: 20px;
+        width: 85%;
+        height: 120px;
+    }
+</style>
+<script type="application/javascript">
+    function show(){
+        document.getElementById("test").innerHTML= "<li>DIO</li><li>ACTIVA</li><li>CBR 150</li><li>CBR 250</li>";
+        document.getElementById("test2").innerHTML= "<li>DIO</li><li>ACTIVA</li><li>CBR 150</li><li>CBR 250</li>";
+        document.getElementById("test3").innerHTML= "<li>DIO</li><li>ACTIVA</li><li>CBR 150</li><li>CBR 250</li>";
+        document.getElementById("test4").innerHTML= "<li>DIO</li><li>ACTIVA</li><li>CBR 150</li><li>CBR 250</li>";
+    }
+    function hide(){
+        document.getElementById("test").innerHTML= "";
+        document.getElementById("test2").innerHTML= "";
+        document.getElementById("test3").innerHTML= "";
+        document.getElementById("test4").innerHTML= "";
+    }
+</script>
+<script>
+    /*(function(){
+     var imgLen = document.getElementById('slider2');
+     var images = imgLen.getElementsByTagName('img');
+     var counter = 1;
+
+     if(counter <= images.length){
+     setInterval(function(){
+     images[0].src = images[counter].src;
+     console.log(images[counter].src);
+     counter++;
+
+     if(counter === images.length){
+     counter = 1;
+     }
+     },4000);
+     }
+     })();*/
+</script>
+<script>
+    /*jQuery(function() {
+     jQuery("li:first-child").addClass("hover-effect");
+     jQuery(".hover-effect").mouseover(function() {
+     jQuery(this).removeClass("hover-effect");
+     });
+     });*/
+    jQuery(document).ready(function()
+    {
+        jQuery("#image-data li:first-child").addClass("hover-effect");
+        jQuery(".hover-effect").mouseout(function() {
+            jQuery(this).removeClass("hover-effect");
+        });
+    })
+
+</script>

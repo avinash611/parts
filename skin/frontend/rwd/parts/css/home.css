@@ -1,0 +1,331 @@
+@charset "utf-8";
+@font-face {
+    font-family: primary;
+    src: url(fonts/SourceSansPro-Regular.otf);
+}
+body{
+	font-family: primary
+}
+.navbarNew .navbar-brand{ 
+  background: url(images/logo.png) center / contain no-repeat;
+  width: 200px;	
+  margin-left: 7px !important	
+}
+.navbar-default {
+  background-color: #ffffff;
+  border-color: #fd8b25;
+}
+.navbar-default .navbar-brand {
+  color: #000000;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #fd8b25;
+}
+.navbar-default .navbar-text {
+  color: #000000;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #000000;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #fd8b25;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #fd8b25;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #fd8b25;
+}
+.navbar-default .navbar-toggle {
+  border-color: #000000;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #000000;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #000000;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #000000;
+}
+.navbar-default .navbar-link {
+  color: #000000;
+}
+.navbar-default .navbar-link:hover {
+  color: #fd8b25;
+}
+
+
+.bouton-image:before {
+    content: "";
+    width: 30px;
+    height: 16px;
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: text-top;
+    background-color: transparent;
+    background-position : center center;
+    background-repeat:no-repeat;
+}
+
+.monBouton:before{
+     background-image : url(images/checkout2.png);
+}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #000000;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #fd8b25;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #fd8b25;
+    background-color: #000000;
+  }	
+	.card2{
+		
+	}
+	.description{
+		margin-left: -25px !important
+	}
+	.mySlides{
+		width: 90% !important
+	}
+	.table-section{
+		margin-left: -10px !important
+	}
+	.input-group button{
+		width: 100% !important
+	}
+}
+
+.carousel-control.left, .carousel-control.right {
+	background-image:none;
+}
+
+.img-responsive{
+	width:100%;
+	height:auto;
+}
+
+
+
+.carousel-inner .item.right,
+.carousel-inner .item.left { 
+  transform: translateX(0);
+}
+
+
+.carousel-control.left,.carousel-control.right {background-image:none;margin: 0px}
+#top-banner {
+    position: relative;    
+}
+
+.img-runner {
+   position: absolute;
+   top: -70px;
+   left: 85px !important;
+   padding: 5px;
+	background-color: #ffffff
+}
+.img-runner2 {
+   position: absolute;
+   top: 360px;
+   margin-left: 7% !important;
+   margin-right: 7% !important
+}
+.img-runner3 {
+   position: absolute;
+   top: 650px;
+   left: 85px;
+   padding: 5px;
+	background-color: #ffffff
+}
+.cell{
+	border: 1px solid #000000;
+	height: 150px !important;
+	text-align: center
+}
+.cell img{
+	height: 80%;
+	width: 100% !important;
+}
+.cell:hover{
+	opacity: 0.6;
+	border: 3px solid #fc6e21;
+}
+.row img{
+	height: 50px !important;
+	width: 50px ;
+	margin-top: 15px;
+	margin-left: 30px
+}
+.row p{
+	margin-top: 20px;
+	text-align: center;
+	line-height: 1em
+}
+.button5 {
+	background-color: #282828;
+	border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 8px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.media{
+	margin-top: 80px !important;
+	padding-left: 50px
+}
+.media-heading{
+	color: #ffffff;
+	margin-left: 10px
+}
+.media1{
+	margin-top: 23px !important;
+	padding-left: 50px
+}
+.media-heading1{
+	color: #000000;
+	margin-left: 10px
+}
+.media3{
+	padding-left: 50px;
+	margin-top: 20px
+}
+div{
+	font-family: primary
+}
+a:hover{
+	color: #fd8b25
+}
+a{
+	color: #000000
+}
+.btn-success{
+	background-color: #fc6e21;
+}
+.offers{
+    margin:0;
+    padding:0;
+}
+.offers img:hover{
+	border: 3px solid #fc6e21;
+	opacity: 0.6
+}
+.offers img{
+    float: left;
+    width: 25%;
+}
+.heading-text{
+	margin-top: 350px !important;
+	margin-left: 85px
+}
+
+.card-custom{
+	margin-left: 5%;
+	margin-right: 5%;
+}
+.card-custom img{
+	width: 100%;
+	margin-top: 5%
+}
+.card-custom button{
+	margin-bottom: 5%
+}
+
+.card{
+	margin-bottom: 25px !important
+}
+
+.prochild2 p {
+	float: left;
+	margin-top: -10px !important
+}
+
+
+.sidenav-cus{
+	padding-left: 40px !important;
+	padding-right: 40px !important;
+	padding-top: 20px !important;
+	padding-bottom: 20px !important
+}
+
+.child3-sidenav{
+	margin-top: 20px !important
+}
+.child2-sidenav{
+	margin-top: 20px !important
+}
+.container header .list-style-buttons { position: absolute; right: 0; }
+
+
+
+
+/* SWITCH CONTROLS */
+.view-controls-list{
+width: 100%;
+text-align: right;
+margin-top: 30px !important
+}
+.view-controls-grid{
+width: 1000px;
+text-align: right;
+}
+#viewcontrols a{
+padding:10px;
+color:black;
+cursor:pointer;
+}
+#viewcontrols a:hover{
+color:palevioletred;
+}
+#viewcontrols .active{
+color:palevioletred;
+}
+
+
+.listview tr{ 
+    border: 10px solid white;
+}
+
+.thumbnails li { list-style: none }
+	.control-box{
+		float: right
+	}
+.menubar-dis a{
+	font-size: 16px !important;
+	margin-right: 20px !important
+}
+.sub-menu{
+	float: right;
+}
+.menubar-pro a{
+	font-size: 18px !important;
+	border-right: 2px solid #ffffff;
+	padding-right: 10px !important;
+	margin-left: 10px;
+	color: #ffffff;
+	
+}
+.menubar-pro a:last-child {
+	border-right: 0px solid #ffffff
+}
+
+.form-control:focus{border-color: #fc6e21; -webkit-box-shadow: none; box-shadow: none; } 
+.has-error .form-control:focus{-webkit-box-shadow: none; box-shadow: none; }

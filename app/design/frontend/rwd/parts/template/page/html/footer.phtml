@@ -1,0 +1,100 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd/parts/images/'?>
+
+<div class="container-fluid parts-section" style="background-color: #fc6e21;margin-top: 80px">
+    <div class="col-md-4 media" style="margin-bottom: 80px">
+   <span class="media-left">
+   <img src="<?php echo $skinUrl?>footertop1.png" alt="" style="width:100px;height:50px">
+    </span>
+        <div class="media-body">
+            <h4 class="media-heading">SECURE DELIVERY</h4>
+            <p style="font-size: 12px" class="media-heading">Best logistics services are used for a <br>
+                secure transit.</p>
+        </div>
+    </div>
+    <div class="col-md-4 media">
+   <span class="media-left">
+   <img src="<?php echo $skinUrl?>footertop2.png" alt="" style="width:40px;height:50px"> </span>
+        <div class="media-body">
+            <h4 class="media-heading">HELPLINE</h4>
+            <p style="font-size: 12px" class="media-heading">Our helpline is open 12hours/day<br>
+                See phone numbers </p>
+        </div>
+    </div>
+    <div class="col-md-4 media" style="margin-bottom: 80px">
+        <span class="media-left"> <img src="<?php echo $skinUrl?>footertop3.png" alt="" style="width:70px;height:30px"> </span>
+        <div class="media-body">
+            <h4 class="media-heading">PAYMENT OPTIONS</h4>
+            <p style="font-size: 12px" class="media-heading">Multiple payment options like Net <br>
+                banking, Credit cards, Debit cards<br>
+                and Cash on delivery</p>
+        </div>
+    </div>
+</div>
+<div class="container-fluid parts-section" style="background-color: #dadada">
+    <div class="col-md-3 media3">
+        <p><b>POLICIES</b></p>
+        <p><a>Privacy policy</a></p>
+        <p><a>Terms of sales</a></p>
+        <p><a>Terms of use</a></p>
+        <p><a>Terms and conditions</a></p>
+        <p><a>Report abuse & takedown policy</a></p>
+    </div>
+    <div class="col-md-3 media3">
+        <p><b>CONNECTING PARTS</b></p>
+        <p><a>About us</a></p>
+        <p><a>Careers</a></p>
+        <p><a>Contact</a></p>
+        <a><i class="fa fa-facebook-square" style="font-size:24px;color: #2fb4c2"></i></a> <a><i class="fa fa-youtube-play" style="font-size:24px;color: #ee5656"></i></a> <a><i class="fa fa-twitter" style="font-size:24px;color: #6cd3d8"></i></a> </div>
+    <div class="col-md-3 media3">
+        <p><b>HELP</b></p>
+        <p><a>Payment</a></p>
+        <p><a>Saved cards</a></p>
+        <p><a>Shipping</a></p>
+        <p><a>Cancellations and returns</a></p>
+        <p><a>Faq</a></p>
+    </div>
+    <div class="col-md-3 media3">
+        <p><b>REGISTERED OFFICE ADDRESS</b></p>
+        <p>Connecting Parts Private Limited,</p>
+        <p>Govt. Cyber Park, 3rd Floor, 2nd Block,</p>
+        <p>Mumbai, Maharashtra - 689084</p>
+        <p>India</p>
+        <p>CIN : U51109KA2012PTC066107</p>
+        <p>Telephone: 1800 208 9898</p>
+    </div>
+</div>
+
+
+
+<div class="footer-container" style="display: none">
+    <div class="footer">
+        <?php echo $this->getChildHtml() ?>
+        <address class="copyright"><?php echo $this->getCopyright() ?></address>
+    </div>
+</div>
