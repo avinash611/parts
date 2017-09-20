@@ -89,19 +89,19 @@
                 <action method="addItem"><type>skin_css</type><name>css/contentslider.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
                 <!--<action method="addItem"><type>skin_css</type><name>css/home.css</name><params/><if><![CDATA[&lt;!&ndash;[if (gte IE 9) | (IEMobile)]>&lt;!&ndash;dash;&gt;]]></if></action>-->
 
-                <action method="addItem"><type>skin_css</type><name>css/bootstrap.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
+                <!--<action method="addItem"><type>skin_css</type><name>css/bootstrap.css</name><params/><if><![CDATA[&lt;!&ndash;[if (gte IE 9) | (IEMobile)]>&lt;!&ndash;dash;&gt;]]></if></action>-->
                 <action method="addItem"><type>skin_css</type><name>css/demo.css</name><params/><if><![CDATA[&lt;!&ndash;[if (gte IE 9) | (IEMobile)]>&lt;!&ndash;dash;&gt;]]></if></action>
                 <action method="addItem"><type>skin_css</type><name>css/flexslider.css</name><params/><if><![CDATA[&lt;!&ndash;[if (gte IE 9) | (IEMobile)]>&lt;!&ndash;dash;&gt;]]></if></action>
                 <action method="addItem"><type>skin_css</type><name>css/multiColumnTemplate.css</name><params/><if><![CDATA[&lt;!&ndash;[if (gte IE 9) | (IEMobile)]>&lt;!&ndash;dash;&gt;]]></if></action>
-               <action method="addItem"><type>skin_css</type><name>css/navbar-fixed-side.css</name><params/><if><![CDATA[&lt;!&ndash;[if (gte IE 9) | (IEMobile)]>&lt;!&ndash;dash;&gt;]]></if></action>
-                <action method="addItem"><type>skin_css</type><name>css/styles.css</name><params/><if><![CDATA[&lt;!&ndash;[if (gte IE 9) | (IEMobile)]>&lt;!&ndash;dash;&gt;]]></if></action>-->
+                <action method="addItem"><type>skin_css</type><name>css/navbar-fixed-side.css</name><params/><if><![CDATA[&lt;!&ndash;[if (gte IE 9) | (IEMobile)]>&lt;!&ndash;dash;&gt;]]></if></action>
+                <!--<action method="addItem"><type>skin_css</type><name>css/styles.css</name><params/><if><![CDATA[&lt;!&ndash;[if (gte IE 9) | (IEMobile)]>&lt;!&ndash;dash;&gt;]]></if></action>&ndash;&gt;-->
                 <!--<action method="addItem"><type>skin_css</type><name>css/font-awesome-4.0.3.css</name><params/><if><![CDATA[&lt;!&ndash;[if (gte IE 9) | (IEMobile)]>&lt;!&ndash;dash;&gt;]]></if></action>-->
 
                 <!-- Add stylesheets with media queries for use by modern browsers -->
-                <action method="addItem"><type>skin_css</type><name>css/style.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
-                <action method="addItem"><type>skin_css</type><name>css/madisonisland.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
-                <action method="addItem"><type>skin_css</type><name>css/font-awesome.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
-
+               <!-- <action method="addItem"><type>skin_css</type><name>css/style.css</name><params/><if><![CDATA[&lt;!&ndash;[if (gte IE 9) | (IEMobile)]>&lt;!&ndash;dash;&gt;]]></if></action>
+                <action method="addItem"><type>skin_css</type><name>css/madisonisland.css</name><params/><if><![CDATA[&lt;!&ndash;[if (gte IE 9) | (IEMobile)]>&lt;!&ndash;dash;&gt;]]></if></action>
+                <action method="addItem"><type>skin_css</type><name>css/font-awesome.css</name><params/><if><![CDATA[&lt;!&ndash;[if (gte IE 9) | (IEMobile)]>&lt;!&ndash;dash;&gt;]]></if></action>
+-->
                 <!-- Sets viewport meta tag using text block -->
                 <block type="core/text" name="head.viewport">
                     <action method="setText"><text><![CDATA[<meta name="viewport" content="initial-scale=1.0, width=device-width" />]]>&#10;</text></action>
