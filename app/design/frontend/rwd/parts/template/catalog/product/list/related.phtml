@@ -24,8 +24,38 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+
+<div class="container-fluid">
+    <div class="container"> <br>
+        <hr>
+        <h2>Similar items</h2>
+        <br>
+        <!-- /#myCarousel -->
+        <ul class="thumbnails" style="margin-left: -20px">
+            <?php foreach($this->getItems() as $_item): ?>
+            <li class="col-sm-2">
+                <div class="card" style="background-color: #efefef">
+                    <div class="card-custom"> <a href="<?php echo $_item->getProductUrl() ?>"> <img class="cardimage" src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(75) ?>" alt=""></a>
+                        <div class="card-block">
+                            <h6 style="text-transform: uppercase" class="text-center"><?php echo $this->escapeHtml($_item->getName()) ?></h6>
+                            <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                            <div class="text-center"> <a class="btn btn-success" href="javascript:void(0);" onclick="setLocation('<?php echo Mage::helper('checkout/cart')->getAddUrl($_item);?>')" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <?php endforeach ?>
+        </ul>
+    </div>
+    <!-- /.container -->
+</div>
+
+
+
+
+
 <?php if($this->getItems()->getSize()): ?>
-<div class="block block-related">
+<div class="block block-related" style="display:none;">
     <div class="block-title">
         <h2><?php echo $this->__('Related Products') ?></h2>
     </div>
