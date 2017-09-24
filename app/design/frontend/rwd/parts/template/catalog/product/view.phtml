@@ -31,7 +31,17 @@
  * @see Mage_Review_Block_Product_View
  */
 ?>
-<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_helper = $this->helper('catalog/output');
+
+
+$products = Mage::getModel("catalog/product")
+    ->getCollection()
+    ->addAttributeToSelect('*')
+    ->setOrder('entity_id', 'DESC')
+    ->setPageSize(3)->load();
+?>
+
+
 <?php $_product = $this->getProduct(); ?>
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
@@ -82,188 +92,28 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
-    <div class="container"> <br>
-        <hr>
-        <h2>You may also want to buy</h2>
-        <br>
-        <!-- /#myCarousel -->
-        <ul class="thumbnails" style="margin-left: -20px">
-            <li class="col-sm-2">
-                <div class="card" style="background-color: #efefef">
-                    <div class="card-custom"> <a href="#"> <img class="cardimage" src="images/recent1.png" alt=""></a>
-                        <div class="card-block">
-                            <h6 style="text-transform: uppercase" class="text-center">Radial Shock Absorber</h6>
-                            <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
-                            <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="col-sm-2">
-                <div class="card" style="background-color: #efefef">
-                    <div class="card-custom"> <a href="#"><img class="cardimage" src="images/recent1.png" alt=""></a>
-                        <div class="card-block">
-                            <h6 style="text-transform: uppercase" class="text-center">Radial Shock Absorber</h6>
-                            <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
-                            <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="col-sm-2">
-                <div class="card" style="background-color: #efefef">
-                    <div class="card-custom"> <a href="#"><img class="cardimage" src="images/recent1.png" alt=""></a>
-                        <div class="card-block">
-                            <h6 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h6>
-                            <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
-                            <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="col-sm-2">
-                <div class="card" style="background-color: #efefef">
-                    <div class="card-custom"> <a href="#"><img class="cardimage" src="images/recent1.png" alt=""></a>
-                        <div class="card-block">
-                            <h6 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h6>
-                            <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
-                            <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="col-sm-2">
-                <div class="card" style="background-color: #efefef">
-                    <div class="card-custom"> <a href="#"><img class="cardimage" src="images/recent1.png" alt=""></a>
-                        <div class="card-block">
-                            <h5 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h5>
-                            <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
-                            <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="col-sm-2">
-                <div class="card" style="background-color: #efefef">
-                    <div class="card-custom"> <a href="#"><img class="cardimage" src="images/recent1.png" alt=""></a>
-                        <div class="card-block">
-                            <h6 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h6>
-                            <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
-                            <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <!-- /.container -->
-</div>
-<div class="container-fluid">
-    <div class="container"> <br>
-        <hr>
-        <h2>Similar items</h2>
-        <br>
-        <!-- /#myCarousel -->
-        <ul class="thumbnails" style="margin-left: -20px">
-            <li class="col-sm-2">
-                <div class="card" style="background-color: #efefef">
-                    <div class="card-custom"> <a href="#"> <img class="cardimage" src="images/recent1.png" alt=""></a>
-                        <div class="card-block">
-                            <h6 style="text-transform: uppercase" class="text-center">Radial Shock Absorber</h6>
-                            <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
-                            <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="col-sm-2">
-                <div class="card" style="background-color: #efefef">
-                    <div class="card-custom"> <a href="#"><img class="cardimage" src="images/recent1.png" alt=""></a>
-                        <div class="card-block">
-                            <h6 style="text-transform: uppercase" class="text-center">Radial Shock Absorber</h6>
-                            <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
-                            <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="col-sm-2">
-                <div class="card" style="background-color: #efefef">
-                    <div class="card-custom"> <a href="#"><img class="cardimage" src="images/recent1.png" alt=""></a>
-                        <div class="card-block">
-                            <h6 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h6>
-                            <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
-                            <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="col-sm-2">
-                <div class="card" style="background-color: #efefef">
-                    <div class="card-custom"> <a href="#"><img class="cardimage" src="images/recent1.png" alt=""></a>
-                        <div class="card-block">
-                            <h6 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h6>
-                            <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
-                            <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="col-sm-2">
-                <div class="card" style="background-color: #efefef">
-                    <div class="card-custom"> <a href="#"><img class="cardimage" src="images/recent1.png" alt=""></a>
-                        <div class="card-block">
-                            <h5 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h5>
-                            <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
-                            <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="col-sm-2">
-                <div class="card" style="background-color: #efefef">
-                    <div class="card-custom"> <a href="#"><img class="cardimage" src="images/recent1.png" alt=""></a>
-                        <div class="card-block">
-                            <h6 style="text-transform: uppercase" class="card-title text-center">Radial Shock Absorber</h6>
-                            <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
-                            <div class="text-center"> <a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <!-- /.container -->
-</div>
+
+<?php echo $this->getChildHtml('upsell_products') ?>
+<?php echo $this->getChildHtml('related_products') ?>
+
 <br>
 <hr>
+
 <div class="container">
     <h2>Recently added parts</h2>
 </div>
-<div class="container-fluid parts-section" style="margin-top: 30px;background-color: #efefef">
-    <div class="col-md-3 media1"> <span class="media-left"> <img src="images/part1.png" alt="" style="width:100px !important;height:100px !important"> </span>
-        <div class="media-body" style="border-right: 1px solid #000000">
-            <p style="font-size: 13px" class="media-heading1">Hella Chrome <br>
-                Twin Tone Horn</p>
-            <p class="media-heading" style="color: #fd8b25">₹ 1470</p>
-            <div class="vdivider"></div>
+
+<div class="container-fluid parts-section" style="margin-top: 30px;background-color: #efefef;height: 150px">
+    <?php foreach($products as $product):?>
+        <div class="col-md-3 media1"> <span class="media-left"> <img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->keepFrame(true)->resize(300); ?>"  alt="" style="width:100px !important;height:100px !important"> </span>
+            <div class="media-body" style="border-right: 1px solid #000000">
+                <p style="font-size: 13px" class="media-heading1"><?php echo $_helper->productAttribute($product, $product->getName() , 'name'); ?> </p>
+                <p class="media-heading" style="color: #fd8b25">₹ <?php echo $_helper->productAttribute($product, $product->getPrice() , 'price'); ?></p>
+                <div class="vdivider"></div>
+            </div>
         </div>
-    </div>
-    <div class="col-md-3 media1"> <span class="media-left"> <img src="images/part1.png" alt="" style="width:100px !important;height:100px !important"> </span>
-        <div class="media-body" style="border-right: 1px solid #000000">
-            <p style="font-size: 13px" class="media-heading1">RIBBED BELT-V</p>
-            <p class="media-heading" style="color: #fd8b25">₹ 234</p>
-        </div>
-    </div>
-    <div class="col-md-3 media1"> <span class="media-left"> <img src="images/part1.png" alt="" style="width:100px !important;height:100px !important"> </span>
-        <div class="media-body" style="border-right: 1px solid #000000">
-            <p style="font-size: 13px" class="media-heading1">POWER CABLE <br>
-                ZUMO 660LM</p>
-            <p class="media-heading" style="color: #fd8b25">₹ 1470</p>
-        </div>
-    </div>
-    <div class="col-md-3 media1" style="margin-bottom: 30px !important">
+    <?php endforeach;?>
+    <div class="col-md-3 media1">
         <h5>SEE ALL RECENTLY ADDED PARTS</h5>
         <button class="button button5">SHOP NOW</button>
     </div>

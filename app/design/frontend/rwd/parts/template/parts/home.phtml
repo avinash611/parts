@@ -1,5 +1,12 @@
-<?php $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd/parts/images/'?>
-
+<?php $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd/parts/images/';
+$_helper = $this->helper('catalog/output');
+$products = Mage::getModel("catalog/product")
+    ->getCollection()
+    ->addAttributeToSelect('*')
+    ->setOrder('entity_id', 'DESC')
+    ->setPageSize(3)->load();
+?>
+<div class="container-fluid" style="background-color: #ffffff;">
 <div class="container-custom mobile-parts">
     <h2 class="text-header" style="margin-bottom: 30px !important">Frequently searched parts</h2>
     <div class="col-md-2 cell"> <a href="#"><img src="<?php echo $skinUrl."ra1.png"?>" class="img-responsive"></a>
@@ -39,35 +46,31 @@
         <p>Lubricants</p>
     </div>
 </div>
+</div>
+<div class="container-fluid" style="background-color: #ffffff;">
 <div class="container-custom offers-section">
     <h2 class="text-header2" style="margin-bottom: 30px !important">Offers that save you a lot of money</h2>
     <div class="offers text-header"> <span> <img src="<?php echo $skinUrl."offer1.png"?>"> <img src="<?php echo $skinUrl."offer2.png"?>"> <img src="<?php echo $skinUrl."offer3.png"?>"> <img src="<?php echo $skinUrl."offer4.png"?>"> </span> </div>
 </div>
-<div class="heading-text text-header">
+    </div>
+
+
+
+
+
+<div class="container">
     <h2>Recently added parts</h2>
 </div>
 <div class="container-fluid parts-section" style="margin-top: 30px;background-color: #efefef;height: 150px">
-    <div class="col-md-3 media1"> <span class="media-left"> <img src="<?php echo $skinUrl."part1.png"?>" alt="" style="width:100px !important;height:100px !important"> </span>
+    <?php foreach($products as $product):?>
+    <div class="col-md-3 media1"> <span class="media-left"> <img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->keepFrame(true)->resize(300); ?>"  alt="" style="width:100px !important;height:100px !important"> </span>
         <div class="media-body" style="border-right: 1px solid #000000">
-            <p style="font-size: 13px" class="media-heading1">Hella Chrome </br>
-                Twin Tone Horn</p>
-            <p class="media-heading" style="color: #fd8b25">₹ 1470</p>
+            <p style="font-size: 13px" class="media-heading1"><?php echo $_helper->productAttribute($product, $product->getName() , 'name'); ?> </p>
+            <p class="media-heading" style="color: #fd8b25">₹ <?php echo $_helper->productAttribute($product, $product->getPrice() , 'price'); ?></p>
             <div class="vdivider"></div>
         </div>
     </div>
-    <div class="col-md-3 media1"> <span class="media-left"> <img src="<?php echo $skinUrl."part1.png"?>" alt="" style="width:100px !important;height:100px !important"> </span>
-        <div class="media-body" style="border-right: 1px solid #000000">
-            <p style="font-size: 13px" class="media-heading1">RIBBED BELT-V</p>
-            <p class="media-heading" style="color: #fd8b25">₹ 234</p>
-        </div>
-    </div>
-    <div class="col-md-3 media1"> <span class="media-left"> <img src="<?php echo $skinUrl."part1.png"?>" alt="" style="width:100px !important;height:100px !important"> </span>
-        <div class="media-body" style="border-right: 1px solid #000000">
-            <p style="font-size: 13px" class="media-heading1">POWER CABLE </br>
-                ZUMO 660LM</p>
-            <p class="media-heading" style="color: #fd8b25">₹ 1470</p>
-        </div>
-    </div>
+    <?php endforeach;?>
     <div class="col-md-3 media1">
         <h5>SEE ALL RECENTLY ADDED PARTS</h5>
         <button class="button button5">SHOP NOW</button>
