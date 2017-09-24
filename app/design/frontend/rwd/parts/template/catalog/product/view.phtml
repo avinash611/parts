@@ -41,7 +41,7 @@ $products = Mage::getModel("catalog/product")
     ->setPageSize(3)->load();
 ?>
 
-?>
+
 <?php $_product = $this->getProduct(); ?>
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
@@ -98,13 +98,14 @@ $products = Mage::getModel("catalog/product")
 
 <br>
 <hr>
+
 <div class="container">
     <h2>Recently added parts</h2>
 </div>
 
-<div class="container-fluid parts-section" style="margin-top: 30px;background-color: #efefef">
+<div class="container-fluid parts-section" style="margin-top: 30px;background-color: #efefef;height: 150px">
     <?php foreach($products as $product):?>
-        <div class="col-md-3 media1"> <span class="media-left"> <img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->keepFrame(false)->resize(300); ?>"  alt="" style="width:100px !important;height:100px !important"> </span>
+        <div class="col-md-3 media1"> <span class="media-left"> <img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->keepFrame(true)->resize(300); ?>"  alt="" style="width:100px !important;height:100px !important"> </span>
             <div class="media-body" style="border-right: 1px solid #000000">
                 <p style="font-size: 13px" class="media-heading1"><?php echo $_helper->productAttribute($product, $product->getName() , 'name'); ?> </p>
                 <p class="media-heading" style="color: #fd8b25">₹ <?php echo $_helper->productAttribute($product, $product->getPrice() , 'price'); ?></p>

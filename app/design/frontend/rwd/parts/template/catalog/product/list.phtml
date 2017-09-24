@@ -54,7 +54,7 @@
                     <?php foreach ($_productCollection as $_product): ?>
                     <div class="col-md-3">
                         <div class="card card2" style="background-color: #efefef">
-                            <div class=""> <a href="<?php echo $_product->getProductUrl() ?>"> <img class="cardimage" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(300); ?>" style="height: 100% !important;width: 75%" alt=""></a>
+                            <div class=""> <a href="<?php echo $_product->getProductUrl() ?>"> <img class="cardimage" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(true)->resize(300); ?>" style="height: 100% !important;width: 75%;" alt=""></a>
                                 <div class="card-block">
                                     <h6 style="text-transform: uppercase" class="text-center"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></h6>
                                     <!--<br/>-->
@@ -70,43 +70,20 @@
                     <?php endforeach;?>
                 </div>
                 <table style="color: #efefef" class="table hidden listview">
+
                     <tbody style="background-color: #efefef">
+                    <?php foreach ($_productCollection as $_product): ?>
                     <tr>
-                        <td style="width: 40%"><span class="media-left"> <img src="images/part1.png" alt="" style="width:80px !important;height:80px !important;margin-top: -5px !important"> </span>
+                        <td style="width: 40%"><span class="media-left"> <a href="<?php echo $_product->getProductUrl() ?>"> <img class="cardimage" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(true)->resize(300); ?>" style="width:80px !important;height:80px !important;margin-top: -5px !important" alt=""></a> </span>
                             <div class="media-body">
-                                <p style="font-size: 13px;margin-top: 0px !important" class="media-heading1">RIBBED BELT-V</p>
+                                <p style="font-size: 13px;margin-top: 0px !important" class="media-heading1"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></p>
                                 <p class="media-heading" style="color: #fd8b25">Optimal</p>
                             </div></td>
-                        <td style="color: #fd8b25;width: 40%;text-align: center">₹2344</td>
-                        <td><a class="btn btn-success" href="#" style="margin-bottom: 10px !important;background-color: #fd8b25"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a></td>
+                        <td style="color: #fd8b25;width: 40%;text-align: center">₹ <?php echo $_helper->productAttribute($_product, $_product->getPrice() , 'price')?></td>
+                        <td><a class="btn btn-success" href="javascript:void(0)" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a></td>
                     </tr>
-                    <tr>
-                        <td style="width: 40%"><span class="media-left"> <img src="images/part1.png" alt="" style="width:80px !important;height:80px !important;margin-top: -5px !important"> </span>
-                            <div class="media-body">
-                                <p style="font-size: 13px;margin-top: 0px !important" class="media-heading1">RIBBED BELT-V</p>
-                                <p class="media-heading" style="color: #fd8b25">Optimal</p>
-                            </div></td>
-                        <td style="color: #fd8b25;width: 40%;text-align: center">₹2344</td>
-                        <td><a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a></td>
-                    </tr>
-                    <tr>
-                        <td style="width: 40%"><span class="media-left"> <img src="images/part1.png" alt="" style="width:80px !important;height:80px !important;margin-top: -5px !important"> </span>
-                            <div class="media-body">
-                                <p style="font-size: 13px;margin-top: 0px !important" class="media-heading1">RIBBED BELT-V</p>
-                                <p class="media-heading" style="color: #fd8b25">Optimal</p>
-                            </div></td>
-                        <td style="color: #fd8b25;width: 40%;text-align: center">₹2344</td>
-                        <td><a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a></td>
-                    </tr>
-                    <tr>
-                        <td style="width: 40%"><span class="media-left"> <img src="images/part1.png" alt="" style="width:80px !important;height:80px !important;margin-top: -5px !important"> </span>
-                            <div class="media-body">
-                                <p style="font-size: 13px;margin-top: 0px !important" class="media-heading1">RIBBED BELT-V</p>
-                                <p class="media-heading" style="color: #fd8b25">Optimal</p>
-                            </div></td>
-                        <td style="color: #fd8b25;width: 40%;text-align: center">₹2344</td>
-                        <td><a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a></td>
-                    </tr>
+                    <?php endforeach;?>
+
                     </tbody>
                 </table>
             </div>

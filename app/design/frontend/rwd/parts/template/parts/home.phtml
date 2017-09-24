@@ -6,7 +6,7 @@ $products = Mage::getModel("catalog/product")
     ->setOrder('entity_id', 'DESC')
     ->setPageSize(3)->load();
 ?>
-
+<div class="container-fluid" style="background-color: #ffffff;">
 <div class="container-custom mobile-parts">
     <h2 class="text-header" style="margin-bottom: 30px !important">Frequently searched parts</h2>
     <div class="col-md-2 cell"> <a href="#"><img src="<?php echo $skinUrl."ra1.png"?>" class="img-responsive"></a>
@@ -46,16 +46,24 @@ $products = Mage::getModel("catalog/product")
         <p>Lubricants</p>
     </div>
 </div>
+</div>
+<div class="container-fluid" style="background-color: #ffffff;">
 <div class="container-custom offers-section">
     <h2 class="text-header2" style="margin-bottom: 30px !important">Offers that save you a lot of money</h2>
     <div class="offers text-header"> <span> <img src="<?php echo $skinUrl."offer1.png"?>"> <img src="<?php echo $skinUrl."offer2.png"?>"> <img src="<?php echo $skinUrl."offer3.png"?>"> <img src="<?php echo $skinUrl."offer4.png"?>"> </span> </div>
 </div>
-<div class="heading-text text-header">
+    </div>
+
+
+
+
+
+<div class="container">
     <h2>Recently added parts</h2>
 </div>
 <div class="container-fluid parts-section" style="margin-top: 30px;background-color: #efefef;height: 150px">
     <?php foreach($products as $product):?>
-    <div class="col-md-3 media1"> <span class="media-left"> <img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->keepFrame(false)->resize(300); ?>"  alt="" style="width:100px !important;height:100px !important"> </span>
+    <div class="col-md-3 media1"> <span class="media-left"> <img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->keepFrame(true)->resize(300); ?>"  alt="" style="width:100px !important;height:100px !important"> </span>
         <div class="media-body" style="border-right: 1px solid #000000">
             <p style="font-size: 13px" class="media-heading1"><?php echo $_helper->productAttribute($product, $product->getName() , 'name'); ?> </p>
             <p class="media-heading" style="color: #fd8b25">₹ <?php echo $_helper->productAttribute($product, $product->getPrice() , 'price'); ?></p>
