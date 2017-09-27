@@ -31,14 +31,87 @@
  * @see Mage_Customer_Block_Address_Edit
  */
 ?>
+<?php
+$skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd/parts/images/';
+?>
+<div class="container-fluid">
+    <div class="container" style="margin-top: 50px">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <div class="userDetails" style="float: left;background-color: #fda929;width: 100%;margin-bottom: 30px !important">
+                    <div class="userProfile" style="float: left;"> <img src="<?php echo $skinUrl."my-account.png" ?>" width="30" height="30" style="margin-bottom: 15px !important"/> </div>
+                    <div class="userProfile" style="float: right;padding:30px 50px;color: #ffffff"> <a href="#">Hello <b><?php echo $this->escapeHtml($this->getCustomer()->getFirstname()) ?></b></a> </div>
+                </div>
+                <div class="links">
+                    <a href="<?php echo Mage::getUrl('sales/order/history')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> My Orders</a><br>
+                    <a href="<?php echo Mage::getUrl('customer/account')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> My Account</a><br>
+                    <a href="<?php echo Mage::getUrl('customer/account/edit')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> Settings</a><br>
+                    <a href="<?php echo Mage::getUrl('customer/address/new/')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> My Address</a><br>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="" style="border: 1px solid #efefef;padding: 0px 20px 20px 20px">
+                    <p style="text-align: left"><?php echo $this->escapeHtml($this->getCustomer()->getFirstname()) ?></p>
+                    <p style="text-align: left">Address</p>
+                    <div class="btn-group btn-group-inline"> <a href="#" class="btn btn-success">Edit</a> <a href="#" class="btn btn-success">Set As Default</a> <a href="#" class="btn btn-success">Delete</a> </div>
+                </div>
+                <a class="btn btn-success" href="#" style="margin-top: 10px !important;margin-bottom: 10px !important"><i class="fa fa-plus"></i> Add New Address</a>
+                <div class="newAddress" style="border: 1px solid #efefef;padding: 30px 20px;background-color: #f8f8f8;height: 480px !important">
+                    <form action="<?php echo Mage::getUrl('customer/address/formPost') ?>" method="post" id="form-validate" class="scaffold-form" enctype="multipart/form-data">
+                        <?php echo $this->getBlockHtml('formkey')?>
+                        <div class="form-group col-md-6">
+                            <label for="first-name">First Name</label>
+                            <input type="first-name" name="firstname" value="<?php echo $this->escapeHtml($this->getCustomer()->getFirstname()) ?>" class="form-control" id="first-name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="last-name">Last Name</label>
+                            <input type="last-name" name="lastname" value="<?php echo $this->escapeHtml($this->getCustomer()->getLastname()) ?>" class="form-control" id="last-name">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="email-name">Address</label>
+                            <textarea class="form-control" name="street[]" value="<?php echo $this->escapeHtml($this->getAddress()->getStreet(1)) ?>" rows="5" id="comment"></textarea>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="first-name">City/District</label>
+                            <input type="first-name" name="city" value="<?php echo $this->escapeHtml($this->getAddress()->getCity()) ?>" class="form-control" id="first-name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="last-name">Pin Code</label>
+                            <input type="last-name"  name="postcode" value="<?php echo $this->escapeHtml($this->getAddress()->getPostcode()) ?>" class="form-control" id="last-name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="first-name">State</label>
+                            <input type="first-name" name="region" class="form-control" id="first-name">
+
+                        </div>
+                        <!--<div class="form-group col-md-6">
+                            <label for="last-name">Telephone</label>
+                            <input type="first-name" name="telephone" value="<?php /*echo $this->escapeHtml($this->getAddress()->getTelephone()) */?>" class="form-control" id="first-name">
+
+                        </div>-->
+                        <div class="form-group col-md-2">
+                            <button style="width: 100%" type="submit" class="btn btn-success">Save</button>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <button style="width: 100%" onclick=setLocation("<?php echo $this->escapeUrl($this->getBackUrl()) ?>") type="button" class="btn btn-success">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <?php if($this->getTitle()): ?>
-<div class="page-title">
+<div style="display:none" class="page-title">
     <h1><?php echo $this->getTitle() ?></h1>
 </div>
 <?php endif; ?>
 <?php echo $this->getMessagesBlock()->toHtml() ?>
 <form action="<?php echo $this->getSaveUrl() ?>" method="post" id="form-validate" class="scaffold-form" enctype="multipart/form-data">
-    <div class="fieldset">
+    <div style="display:none" class="fieldset">
     <?php echo $this->getBlockHtml('formkey')?>
     <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
     <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
@@ -70,7 +143,7 @@
             </li>
         </ul>
     </div>
-    <div class="fieldset">
+    <div  style="display:none" class="fieldset">
         <h2 class="legend"><?php echo $this->__('Address') ?></h2>
         <ul class="form-list">
         <?php $_streetValidationClass = $this->helper('customer/address')->getAttributeValidationClass('street'); ?>
@@ -153,7 +226,7 @@
             </li>
         </ul>
     </div>
-    <div class="buttons-set">
+    <div style="display:none" class="buttons-set">
         <p class="back-link"><a href="<?php echo $this->escapeUrl($this->getBackUrl()) ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a></p>
         <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Save Address')) ?>" class="button"><span><span><?php echo $this->__('Save Address') ?></span></span></button>
     </div>
@@ -163,4 +236,20 @@
     var dataForm = new VarienForm('form-validate', true);
     new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'zip');
 //]]>
+</script>
+<script>
+    jQuery('.remove').click(function(){
+        jQuery(this).parents('tr').remove();
+    })
+</script>
+<script>
+    jQuery(document).ready(function(e){
+        jQuery('.search-panel .dropdown-menu').find('a').click(function(e) {
+            e.preventDefault();
+            var param = jQuery(this).attr("href").replace("#","");
+            var concept =jQuery(this).text();
+            jQuery('.search-panel span#search_concept').text(concept);
+            jQuery('.input-group #search_param').val(param);
+        });
+    });
 </script>

@@ -115,7 +115,7 @@ $products = Mage::getModel("catalog/product")
     <?php endforeach;?>
     <div class="col-md-3 media1">
         <h5>SEE ALL RECENTLY ADDED PARTS</h5>
-        <button class="button button5">SHOP NOW</button>
+        <button class="button button5" onclick="setLocation("<?php echo Mage::getUrl('products.html')?>")">SHOP NOW</button>
     </div>
 </div>
 

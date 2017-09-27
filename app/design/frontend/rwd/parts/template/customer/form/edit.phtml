@@ -24,12 +24,71 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<div class="page-title">
+<?php
+$skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd/parts/images/';
+?>
+<div class="container-fluid">
+    <div class="container" style="margin-top: 50px">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <div class="userDetails" style="float: left;background-color: #fda929;width: 100%;margin-bottom: 30px !important">
+                    <div class="userProfile" style="float: left;"> <img src="<?php echo $skinUrl."my-account.png" ?>" width="30" height="30" style="margin-bottom: 15px !important"/> </div>
+                    <div class="userProfile" style="float: right;padding:30px 50px;color: #ffffff"> <a href="#">Hello <b><?php echo $this->escapeHtml($this->getCustomer()->getFirstname()) ?></b></a> </div>
+                </div>
+                <div class="links">
+                    <a href="<?php echo Mage::getUrl('sales/order/history')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> My Orders</a><br>
+                    <a href="<?php echo Mage::getUrl('customer/account')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> My Account</a><br>
+                    <a href="<?php echo Mage::getUrl('customer/account/edit')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> Settings</a><br>
+                    <a href="<?php echo Mage::getUrl('customer/address/new/')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> My Address</a><br>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-8" style="border: 1px solid #efefef;padding: 30px 20px;background-color: #f8f8f8">
+                <form action="<?php echo $this->getUrl('customer/account/editPost') ?>" method="post" autocomplete="off" id="form-validate" class="scaffold-form" enctype="multipart/form-data">
+                    <div class="form-group col-md-6">
+                        <label for="first-name">First Name</label>
+                        <input type="first-name" name="firstname" value="<?php echo $this->escapeHtml($this->getCustomer()->getFirstname()) ?>" class="form-control" id="first-name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="email-name">Email</label>
+                        <input type="email-name" name="email" value="<?php echo $this->escapeHtml($this->getCustomer()->getEmail()) ?>" class="form-control" id="email-name">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="mobile-name">Current password</label>
+                        <input type="password" name="current_password" class="form-control" id="mobile-name">
+                    </div>
+                    <br class="hidden-xs">
+                    <br class="hidden-xs">
+                    <br class="hidden-xs">
+                    <br class="hidden-xs">
+                    <br class="hidden-xs">
+                    <br class="hidden-xs">
+                    <br class="hidden-xs">
+                    <div class="form-group col-md-6">
+                        <label for="mobile-name">New password</label>
+                        <input type="password" name="password" class="form-control" id="mobile-name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="mobile-name">Retype New password</label>
+                        <input type="password" name="confirmation" class="form-control" id="mobile-name">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <button style="width: 100%" type="submit" class="btn btn-success">Save</button>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <button style="width: 100%" type="submit" class="btn btn-success">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display:none" class="page-title">
     <h1><?php echo $this->__('Edit Account Information') ?></h1>
 </div>
 <?php echo $this->getMessagesBlock()->toHtml() ?>
 <form action="<?php echo $this->getUrl('customer/account/editPost') ?>" method="post" autocomplete="off" id="form-validate" class="scaffold-form" enctype="multipart/form-data">
-    <div class="fieldset">
+    <div style="display:none" class="fieldset">
         <?php echo $this->getBlockHtml('formkey')?>
         <h2 class="legend"><?php echo $this->__('Account Information') ?></h2>
         <p class="required"><?php echo $this->__('* Required Fields') ?></p>
@@ -87,7 +146,7 @@
             </li>
         </ul>
     </div>
-    <div class="buttons-set">
+    <div style="display:none" class="buttons-set">
         <p class="back-link"><a href="<?php echo $this->escapeUrl($this->getBackUrl()) ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a></p>
         <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Save')) ?>" class="button"><span><span><?php echo $this->__('Save') ?></span></span></button>
     </div>
@@ -103,4 +162,20 @@
         setPasswordForm(true);
     <?php endif; ?>
 //]]>
+</script>
+<script>
+    jQuery('.remove').click(function(){
+        jQuery(this).parents('tr').remove();
+    })
+</script>
+<script>
+    jQuery(document).ready(function(e){
+        jQuery('.search-panel .dropdown-menu').find('a').click(function(e) {
+            e.preventDefault();
+            var param = jQuery(this).attr("href").replace("#","");
+            var concept =jQuery(this).text();
+            jQuery('.search-panel span#search_concept').text(concept);
+            jQuery('.input-group #search_param').val(param);
+        });
+    });
 </script>

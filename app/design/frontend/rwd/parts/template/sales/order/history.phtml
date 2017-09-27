@@ -24,14 +24,98 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<?php echo $this->getMessagesBlock()->toHtml() ?>
-<?php $_orders = $this->getOrders(); ?>
-<div class="page-title">
-    <h1><?php echo $this->__('My Orders') ?></h1>
+<div class="container-fluid">
+    <div class="container" style="margin-top: 50px">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <div class="userDetails" style="float: left;background-color: #fda929;width: 100%;margin-bottom: 30px !important">
+                    <div class="userProfile" style="float: left;"> <img src="images/my-account.png" width="30" height="30" style="margin-bottom: 15px !important"/> </div>
+                    <div class="userProfile" style="float: right;padding:30px 50px;color: #ffffff"> <a href="#">Hello <b>Rohit</b></a> </div>
+                </div>
+                <div class="links">
+                    <a href="<?php echo Mage::getUrl('sales/order/history')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> My Orders</a><br>
+                    <a href="<?php echo Mage::getUrl('customer/account')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> My Account</a><br>
+                    <a href="<?php echo Mage::getUrl('customer/account/edit')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> Settings</a><br>
+                    <a href="<?php echo Mage::getUrl('customer/address/new/')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> My Address</a><br>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-9">
+                <div class="row">
+                    <div class="col-md-2">
+                        <p>Caller Id: <a href="#">12345</a></p>
+                    </div>
+                    <div class="col-md-2">
+                        <button style="margin-top: 15px !important;background-color: #1479b3" class="btn btn-success" type="button"><i class="fa fa-map-marker"></i> Track</button>
+                    </div>
+                    <div class="col-md-2">
+                        <p style="text-align: left">Seller: <a style="color: #fc6e21" href="#">Fairground</a></p>
+                    </div>
+                    <div class="col-md-2 col-md-offset-4">
+                        <p>10:30pm,23/06/17</p>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px !important">
+                    <div class="col-md-12">
+                        <table class="table">
+                            <thead style="background-color: #dfdfdf">
+                            <tr>
+                                <th>Items</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody style="background-color: #f6f6f6">
+                            <tr>
+                                <td><div class="col-md-8" style="margin-top: -15px !important"> <img style="float: left" src="images/products/product-img.png" width="30" height="30"/>
+                                        <div class="text" style="float: right">
+                                            <p>OIL FILTER FOR 100 GC</p>
+                                            <p style="line-height: 1px">OPTIMAL</p>
+                                        </div>
+                                    </div></td>
+                                <td>1000</td>
+                                <td style="color: #fc6e21">Rs. 2045</td>
+                                <td style="width: 100px !important"></td>
+                            </tr>
+                            <tr>
+                                <td><div class="col-md-8" style="margin-top: -15px !important"> <img style="float: left" src="images/products/product-img.png" width="30" height="30"/>
+                                        <div class="text" style="float: right">
+                                            <p>OIL FILTER FOR 100 GC</p>
+                                            <p style="line-height: 1px">OPTIMAL</p>
+                                        </div>
+                                    </div></td>
+                                <td>1000</td>
+                                <td style="color: #fc6e21">Rs. 2045</td>
+                                <td style="width: 150px !important"><input class="form-control" id="disabledInput" type="text" placeholder="Total: 1200" disabled></td>
+                            </tr>
+                            <tr>
+                                <td><div class="col-md-8" style="margin-top: -15px !important"> <img style="float: left" src="images/products/product-img.png" width="30" height="30"/>
+                                        <div class="text" style="float: right">
+                                            <p>OIL FILTER FOR 100 GC</p>
+                                            <p style="line-height: 1px">OPTIMAL</p>
+                                        </div>
+                                    </div></td>
+                                <td>1000</td>
+                                <td style="color: #fc6e21">Rs. 2045</td>
+                                <td style="width: 100px !important"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<?php echo $this->getChildHtml('info');?>
-<?php echo $this->getPagerHtml(); ?>
-<?php if($_orders->getSize()): ?>
+<!---------default div----------->
+<?php /*echo $this->getMessagesBlock()->toHtml() */?><!--
+<?php /*$_orders = $this->getOrders(); */?>
+<div class="page-title">
+    <h1><?php /*echo $this->__('My Orders') */?></h1>
+</div>
+<?php /*echo $this->getChildHtml('info');*/?>
+<?php /*echo $this->getPagerHtml(); */?>
+<?php /*if($_orders->getSize()): */?>
 <table class="data-table orders" id="my-orders-table">
     <col width="1" />
     <col width="1" />
@@ -41,37 +125,55 @@
     <col width="1" />
     <thead>
         <tr>
-            <th class="number"><?php echo $this->__('Order #') ?></th>
-            <th class="date"><?php echo $this->__('Date') ?></th>
-            <th class="ship"><?php echo $this->__('Ship To') ?></th>
-            <th class="total"><span class="nobr"><?php echo $this->__('Order Total') ?></span></th>
-            <th class="status"><span class="nobr"><?php echo $this->__('Order Status') ?></span></th>
+            <th class="number"><?php /*echo $this->__('Order #') */?></th>
+            <th class="date"><?php /*echo $this->__('Date') */?></th>
+            <th class="ship"><?php /*echo $this->__('Ship To') */?></th>
+            <th class="total"><span class="nobr"><?php /*echo $this->__('Order Total') */?></span></th>
+            <th class="status"><span class="nobr"><?php /*echo $this->__('Order Status') */?></span></th>
             <th class="view">&nbsp;</th>
         </tr>
     </thead>
     <tbody>
-        <?php $_odd = ''; ?>
-        <?php foreach ($_orders as $_order): ?>
+        <?php /*$_odd = ''; */?>
+        <?php /*foreach ($_orders as $_order): */?>
         <tr>
-            <td class="number"><?php echo $_order->getRealOrderId() ?></td>
-            <td class="date"><span class="nobr"><?php echo $this->formatDate($_order->getCreatedAtStoreDate()) ?></span></td>
-            <td class="ship"><?php echo $_order->getShippingAddress() ? $this->escapeHtml($_order->getShippingAddress()->getName()) : '&nbsp;' ?></td>
-            <td class="total"><?php echo $_order->formatPrice($_order->getGrandTotal()) ?></td>
-            <td class="status"><em><?php echo $_order->getStatusLabel() ?></em></td>
+            <td class="number"><?php /*echo $_order->getRealOrderId() */?></td>
+            <td class="date"><span class="nobr"><?php /*echo $this->formatDate($_order->getCreatedAtStoreDate()) */?></span></td>
+            <td class="ship"><?php /*echo $_order->getShippingAddress() ? $this->escapeHtml($_order->getShippingAddress()->getName()) : '&nbsp;' */?></td>
+            <td class="total"><?php /*echo $_order->formatPrice($_order->getGrandTotal()) */?></td>
+            <td class="status"><em><?php /*echo $_order->getStatusLabel() */?></em></td>
             <td class="a-center view">
-                <span class="nobr"><a href="<?php echo $this->getViewUrl($_order) ?>"><?php echo $this->__('View Order') ?></a>
-                    <?php /*<span class="separator">|</span><a href="<?php echo $this->getTrackUrl($_order) ?>"><?php echo $this->__('Track Order') ?></a>&nbsp;*/ ?>
-                    <?php if ($this->helper('sales/reorder')->canReorder($_order)) : ?>
-                    <span class="separator">|</span> <a href="<?php echo $this->getReorderUrl($_order) ?>" class="link-reorder"><?php echo $this->__('Reorder') ?></a>
-                <?php endif ?>
+                <span class="nobr"><a href="<?php /*echo $this->getViewUrl($_order) */?>"><?php /*echo $this->__('View Order') */?></a>
+                    <?php /*/*<span class="separator">|</span><a href="<?php echo $this->getTrackUrl($_order) ?>"><?php echo $this->__('Track Order') ?></a>&nbsp;*/ ?>
+                    <?php /*if ($this->helper('sales/reorder')->canReorder($_order)) : */?>
+                    <span class="separator">|</span> <a href="<?php /*echo $this->getReorderUrl($_order) */?>" class="link-reorder"><?php /*echo $this->__('Reorder') */?></a>
+                <?php /*endif */?>
                 </span>
             </td>
         </tr>
-        <?php endforeach; ?>
+        <?php /*endforeach; */?>
     </tbody>
 </table>
 <script type="text/javascript">decorateTable('my-orders-table');</script>
-<?php echo $this->getPagerHtml(); ?>
-<?php else: ?>
-    <p><?php echo $this->__('You have placed no orders.'); ?></p>
-<?php endif ?>
+<?php /*echo $this->getPagerHtml(); */?>
+<?php /*else: */?>
+    <p><?php /*echo $this->__('You have placed no orders.'); */?></p>
+--><?php /*endif */?>
+
+
+<script>
+    jQuery('.remove').click(function(){
+        jQuery(this).parents('tr').remove();
+    })
+</script>
+<script>
+    jQuery(document).ready(function(e){
+        jQuery('.search-panel .dropdown-menu').find('a').click(function(e) {
+            e.preventDefault();
+            var param = jQuery(this).attr("href").replace("#","");
+            var concept =jQuery(this).text();
+            jQuery('.search-panel span#search_concept').text(concept);
+            jQuery('.input-group #search_param').val(param);
+        });
+    });
+</script>

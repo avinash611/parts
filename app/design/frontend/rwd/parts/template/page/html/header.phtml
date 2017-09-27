@@ -32,7 +32,128 @@
 
 
 <?php $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."/frontend/rwd/parts/images/";?>
+<?php $helper = Mage::helper('customer'); ?>
+<?php if ($helper->isLoggedIn() ): ?>
+    <nav class="navbar navbar-default navbar-fixed-top navbarNew">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar6"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <a class="navbar-brand text-hide" href="<?php echo Mage::getBaseUrl()?>">Brand Text </a> </div>
+            <div id="navbar6" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="navbar-form" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="search" name="q">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user-circle-o" style="font-size:20px"></i> Hello <?php echo $helper->getCustomer()->getFirstname() ?> <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <button style="margin: 15px;width: 80%" type="button" onclick=setLocation("<?php echo Mage::getUrl('customer/account')?>") class="btn btn-success">My Account</button>
+                            </li>
+                            <li>
+                                <button style="margin: 15px;width: 80%" type="button" onclick=setLocation("<?php echo Mage::getUrl('customer/account/logout')?>") class="btn btn-success">Logout</button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+        <!--/.container-fluid -->
+    </nav>
+    <?php if($this->getIsHomePage()):?>
+        <div id="top-banner" style="background-color: #efefef;height: 820px"> <img src="<?php echo $skinUrl."banner-top.png"?>" width="100%">
+            <!--start-->
+            <div class="container img-runner2">
+                <div class="row">
+                    <div class="col-xs-8 col-xs-offset-2">
+                        <div class="input-group">
+                            <div class="input-group-btn search-panel">
+                                <button style="height:50px;width:150px" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <span id="search_concept">SELECT A BRAND</span> <span class="caret"></span> </button>
+                                <ul id="custom-dropdown" class="dropdown-menu" role="menu">
+                                    <li><a href="#contains">TVS</a></li>
+                                    <li><a href="#its_equal">TRIUMPH</a></li>
+                                    <li><a href="#greather_than">HONDA</a></li>
+                                </ul>
+                            </div>
+                            <input type="hidden" name="search_param" value="all" id="search_param">
+                            <input style="height:50px" type="text" class="form-control" name="x" placeholder="Type the part name, part number or model name">
+          <span class="input-group-btn">
+          <button style="height:50px;width: 150px" class="btn btn-success" type="button">SEARCH</button>
+          </span> </div>
+                    </div>
+                </div>
+            </div>
 
+
+            <div id="slider2" class="img-runner" style="margin-bottom: 50px">
+                <div class="thumbelina-but horiz left">&#706;</div>
+                <ul id="image-data">
+                    <li><a href="#"><img onmouseover="show()"  src="<?php echo $skinUrl."honda.png"?>"></a></li>
+                    <li><a href="#"><img onmouseover="show()"  src="<?php echo $skinUrl."suzuki.png"?>"></a></li>
+                    <li><a href="#"><img onmouseover="show()"  src="<?php echo $skinUrl."triumph.png"?>"></a></li>
+                    <li><a href="#"><img onmouseover="show()"  src="<?php echo $skinUrl."hero.png"?>"></a></li>
+                    <li><a href="#"><img onmouseover="show()"  src="<?php echo $skinUrl."ktm.png"?>"></a></li>
+                    <li><a href="#"><img onmouseover="show()"  src="<?php echo $skinUrl."um.png"?>"></a></li>
+                    <li><a href="#"><img onmouseover="show()"  src="<?php echo $skinUrl."tvs.png"?>"></a></li>
+                    <li><a href="#"><img onmouseover="show()"  src="<?php echo $skinUrl."harley.png"?>"></a></li>
+                    <li><a href="#"><img onmouseover="show()"  src="<?php echo $skinUrl."Yamaha.png"?>"></a></li>
+                    <li><a href="#"><img onmouseover="show()"  src="<?php echo $skinUrl."bajaj.png"?>"></a></li>
+                    <li><a href="#"><img onmouseover="show()"  src="<?php echo $skinUrl."bmw.png"?>"></a></li>
+                </ul>
+                <div class="thumbelina-but horiz right">&#707;</div>
+            </div>
+            <div class="img-runner3" style="height: 150px !important;background-color: #ffffff;width: 88%;border: 1px solid #efefef">
+                <div style="line-height: 2em;font-size: 14px;margin-top: 15px" class="col-md-3 ">
+                    <ul id="test"><li>DIO</li><li>ACTIVA</li><li>CBR 150</li><li>CBR 250</li>
+                    </ul>
+                </div>
+                <div style="line-height: 2em;font-size: 14px;margin-top: 15px" class="col-md-3 hidden-xs">
+                    <ul id="test2"><li>DIO</li><li>ACTIVA</li><li>CBR 150</li><li>CBR 250</li>
+                    </ul>
+                </div>
+                <div style="line-height: 2em;font-size: 14px;margin-top: 15px" class="col-md-3 hidden-xs ">
+                    <ul id="test3"><li>DIO</li><li>ACTIVA</li><li>CBR 150</li><li>CBR 250</li>
+                    </ul>
+                </div>
+                <div style="line-height: 2em;font-size: 14px;margin-top: 15px" class="col-md-3 hidden-xs ">
+                    <ul id="test4"><li>DIO</li><li>ACTIVA</li><li>CBR 150</li><li>CBR 250</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <?php else:?>
+    <div class="container-fluid" style="background-color: #efefef">
+        <div class="container" style="margin-top: 80px !important">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="input-group" style="margin-bottom: 30px !important">
+                        <div class="input-group-btn search-panel">
+                            <button style="height:50px;width: 150px" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <span id="search_concept">SELECT A BRAND</span> <span class="caret"></span> </button>
+                            <ul id="custom-dropdown" class="dropdown-menu" role="menu">
+                                <li><a href="#contains">TVS</a></li>
+                                <li><a href="#its_equal">TRIUMPH</a></li>
+                                <li><a href="#greather_than">HONDA</a></li>
+                            </ul>
+                        </div>
+                        <input type="hidden" name="search_param" value="all" id="search_param">
+                        <input style="height:50px" type="text" class="form-control" name="x" placeholder="Type the part name, part number or model name">
+          <span class="input-group-btn">
+          <button style="height:50px;width: 150px" class="btn btn-success" type="button">SEARCH</button>
+          </span> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endif;?>
+
+<?php else:?>
 <nav class="navbar navbar-default navbar-fixed-top navbarNew">
     <div class="container">
         <div class="navbar-header">
@@ -42,22 +163,29 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand text-hide" href="#">Brand Text
+            <a class="navbar-brand text-hide" href="<?php echo Mage::getBaseUrl()?>">Brand Text
             </a>
         </div>
+        <form action="<?php echo Mage::getUrl('customer/account/createpost') ?>" method="post" id="form-validate" class="scaffold-form" enctype="multipart/form-data">
         <div id="navbar6" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Now here? Sign Up<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><input style="width: 150px;margin: 15px" type="text" class="form-control" id="usr" placeholder="Username"></li>
-                        <li><input style="width: 150px;margin: 15px" type="number" class="form-control" id="mobile" placeholder="Mobile no"></li>
-                        <li><input style="width: 150px;margin: 15px" type="password" class="form-control" id="pass" placeholder="Password"></li>
-                        <li><button style="margin: 15px" type="button" class="btn btn-success">Register</button></li>
+                        <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+                        <!--<input type="hidden" name="success_url" value="<?php /*echo $this->getSuccessUrl() */?>" />-->
+                        <li><input style="width: 150px;margin: 15px" type="text" class="form-control" name="firstname" id="fname" placeholder="First name"></li>
+                        <li><input style="width: 150px;margin: 15px" type="text" class="form-control" name="lastname" id="lname" placeholder="Last name"></li>
+                        <!--<li><input style="width: 150px;margin: 15px" type="number" class="form-control" id="mobile" placeholder="Mobile no"></li>-->
+                        <li><input style="width: 150px;margin: 15px" type="text" class="form-control" name="email" id="email" placeholder="Email ID"></li>
+
+                        <li><input style="width: 150px;margin: 15px" type="password" name="password" class="form-control" id="pass" placeholder="Password"></li>
+                        <li><input style="width: 150px;margin: 15px" type="password" name="confirmation" class="form-control" id="confirm" placeholder="Re-Enter Password"></li>
+                        <li><button style="margin: 15px" type="submit" class="btn btn-success">Register</button></li>
 
                     </ul>
                 </li>
-                <li><a href="#"><img src="<?php echo $skinUrl?>user_icon.png" height="25px" width="25px"> Login</a></li>
+                <li><a href="<?php echo Mage::getUrl('customer/account/loginPost')?>"><img src="<?php echo $skinUrl?>user_icon.png" height="25px" width="25px"> Login</a></li>
                 <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img src="<?php echo $skinUrl.'cart.png'?>" height="25px" width="25px"> No items<span class="caret"></span></a>
                     <ul class="dropdown-menu" style="background-color: #202020;width: 500px !important" role="menu">
                         <div style="margin: 20px !important">
@@ -100,6 +228,7 @@
                 </li>
             </ul>
         </div>
+        </form>
         <!--/.nav-collapse -->
     </div>
     <!--/.container-fluid -->
@@ -190,6 +319,12 @@
     </div>
 </div>
 <?php endif;?>
+
+<?php endif;?>
+
+
+
+
 
 
 <div style="display: none" class="header-language-background">

@@ -31,8 +31,87 @@
  * @var $this Mage_Checkout_Block_Cart
  */
 ?>
+
+<div class="container-fluid">
+    <div class="container" style="margin-top: 50px">
+        <div class="row">
+            <div class="col-md-8 col-sm-8">
+                <h2>Items in the cart</h2>
+                <form action="<?php echo $this->getFormActionUrl() ?>" method="post">
+                    <?php echo $this->getBlockHtml('formkey'); ?>
+
+
+                <table class="table" id="cart_table">
+                    <?php $mergedCells = ($this->helper('tax')->displayCartBothPrices() ? 2 : 1); ?>
+                    <thead>
+                    <tr>
+                        <th rowspan="<?php echo $mergedCells; ?>">Items</th>
+                        <th rowspan="<?php echo $mergedCells; ?>">Brand</th>
+                        <th rowspan="<?php echo $mergedCells; ?>">Qty</th>
+                        <th rowspan="<?php echo $mergedCells; ?>">Total</th>
+                        <th rowspan="<?php echo $mergedCells; ?>">Expected Delivery Date</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <?php foreach($this->getItems() as $_item): ?>
+                        <tr>
+                           <div style="float: left"><?php echo $this->getItemHtml($_item) ?></div>
+
+                        </tr>
+                    <?php endforeach ?>
+                    <!--<tr>
+                        <td><div style="float: left"> <img src="images/part1.png" alt=""> </div>
+                            <div style="float: right;margin-top: -15px  !important">
+                                <p style="font-size: 13px;">RIBBED BELT-V</p>
+                                <p style="color: #fd8b25;font-size: 13px;">Seller: FairGround</p>
+                            </div></td>
+                        <td>Optimal</td>
+                        <td><input style="width: 70px !important" type="number" class="form-control" id="no1"></td>
+                        <td>₹2344</td>
+                        <td>3-Dec-1017</td>
+                        <td><button title="" type="button"
+                                    class="btn btn-success remove show_tip"
+                                    data-original-title="Remove from list"> <i class="fa fa-trash-o"></i> </button></td>
+                    </tr>
+                    <tr>
+                        <td><div style="float: left"> <img src="images/part1.png" alt=""> </div>
+                            <div style="float: right;margin-top: -15px  !important">
+                                <p style="font-size: 13px;">RIBBED BELT-V</p>
+                                <p style="color: #fd8b25;font-size: 13px;">Seller: FairGround</p>
+                            </div></td>
+                        <td>Optimal</td>
+                        <td><input style="width: 70px !important" type="number" class="form-control" id="no1"></td>
+                        <td>₹2344</td>
+                        <td>3-Dec-1017</td>
+                        <td><button title="" type="button"
+                                    class="btn btn-success remove show_tip"
+                                    data-original-title="Remove from list"> <i class="fa fa-trash-o"></i> </button></td>
+                    </tr>-->
+                    </tbody>
+                </table>
+                    </form>
+                <div> <a style="float: left;" href="<?php echo Mage::helper('core')->quoteEscape($this->getContinueShoppingUrl()) ?>"><i class="fa fa-arrow-left"></i>Continue Shopping</a> <a class="btn btn-success" onclick="window.location='<?php echo $this->getCheckoutUrl() ?>';" style="margin-bottom: 10px !important;float: right">Proceed to checkout</a> </div>
+            </div>
+            <div class="col-md-4 priceSummary" style="padding: 20px !important;background-color: #fda929;color: #ffffff">
+                <h2>Price Summary</h2>
+                <hr>
+                <div class="totalSummary"> <a style="float: left" href="#">Total Price(2 items)</a> <a style="float: right" href="#">₹3,400</a> </div>
+                <br>
+                <br>
+                <div class="deliverySummary"> <a style="float: left" href="#">Delivery Charges</a> <a style="float: right" href="#">₹0</a> </div>
+                <br>
+                <hr>
+                <div class="amountSummary"> <a style="float: left" href="#">Amount Payable</a> <a style="float: right" href="#">₹34,003</a> </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<!------default page---------->
 <?php $_priceDisplay = ($this->helper('tax')->displayCartBothPrices()) ? 'display-both-prices' : 'display-single-price'; ?>
-<div class="cart <?php echo $_priceDisplay; ?>">
+<div  class="cart <?php echo $_priceDisplay; ?>">
     <div class="page-title title-buttons">
         <h1><?php echo $this->__('Shopping Cart') ?></h1>
         <?php if(!$this->hasError()): ?>

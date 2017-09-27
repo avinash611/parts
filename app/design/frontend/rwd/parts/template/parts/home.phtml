@@ -14,16 +14,51 @@ $products = Mage::getModel("catalog/product")
 <div class="container-fluid" style="background-color: #ffffff;">
 <div class="container-custom mobile-parts">
     <h2 class="text-header" style="margin-bottom: 30px !important">Frequently searched parts</h2>
+    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl."ra1.png"?>" class="img-responsive"></a>
+        <p>Lubricants</p>
+    </div>
+    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl."ra2.png"?>" class="img-responsive"></a>
+        <p>Engine</p>
+    </div>
+    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl."ra3.png"?>" class="img-responsive"></a>
+        <p>Electric components</p>
+    </div>
+    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl."ra1.png"?>" class="img-responsive"></a>
+        <p>Lubricants</p>
+    </div>
+    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl."ra3.png"?>" class="img-responsive"></a>
+        <p>Electric components</p>
+    </div>
+    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl."ra2.png"?>" class="img-responsive"></a>
+        <p>Engine</p>
+    </div>
+    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl."ra5.png"?>" class="img-responsive"></a>
+        <p>Exhaust system</p>
+    </div>
+    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl."ra6.png"?>" class="img-responsive"></a>
+        <p>Suspension</p>
+    </div>
+    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl."ra1.png"?>" class="img-responsive"></a>
+        <p>Lubricants</p>
+    </div>
+    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl."ra4.png"?>" class="img-responsive"></a>
+        <p>Universal</p>
+    </div>
+    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl."ra5.png"?>" class="img-responsive"></a>
+        <p>Exhaust system</p>
+    </div>
+    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php echo $skinUrl."ra1.png"?>" class="img-responsive"></a>
+        <p>Lubricants</p>
+    </div>
+  <!-- <?php /*foreach(explode(',',$subcats) as $subCatid):*/?>
 
-   <?php foreach(explode(',',$subcats) as $subCatid):?>
+    <?php /*$_category = Mage::getModel('catalog/category')->load($subCatid);*/?>
 
-    <?php $_category = Mage::getModel('catalog/category')->load($subCatid);?>
-
-       <div class="col-md-2 col-sm-2 cell"> <a href="<?php echo $_category->getURL()?>"><img src="<?php echo $_category->getImageUrl()?>" class="img-responsive"></a>
-           <p><?php echo $_category->getName()?></p>
+       <div class="col-md-2 col-sm-2 cell"> <a href="<?php /*echo $_category->getURL()*/?>"><img src="<?php /*echo $_category->getImageUrl()*/?>" class="img-responsive"></a>
+           <p><?php /*echo $_category->getName()*/?></p>
        </div>
 
-    <?php endforeach;?>
+    --><?php /*endforeach;*/?>
 
 </div>
 </div>
@@ -53,7 +88,9 @@ $products = Mage::getModel("catalog/product")
     <?php endforeach;?>
     <div class="col-md-3 media1">
         <h5>SEE ALL RECENTLY ADDED PARTS</h5>
-        <button class="button button5">SHOP NOW</button>
+        <button class="button button5" onclick= setLocation("<?php echo Mage::getUrl('products.html')?>") >SHOP NOW</button>
+
+
     </div>
 </div>
 
