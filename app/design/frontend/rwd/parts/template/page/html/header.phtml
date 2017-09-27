@@ -174,13 +174,13 @@
                     <ul class="dropdown-menu" role="menu">
                         <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
                         <!--<input type="hidden" name="success_url" value="<?php /*echo $this->getSuccessUrl() */?>" />-->
-                        <li><input style="width: 150px;margin: 15px" type="text" class="form-control" name="firstname" id="fname" placeholder="First name"></li>
-                        <li><input style="width: 150px;margin: 15px" type="text" class="form-control" name="lastname" id="lname" placeholder="Last name"></li>
+                        <li><input style="width: 150px;margin: 15px" type="text" class="form-control required-entry" name="firstname" id="fname" placeholder="First name"></li>
+                        <li><input style="width: 150px;margin: 15px" type="text" class="form-control required-entry" name="lastname" id="lname" placeholder="Last name"></li>
                         <!--<li><input style="width: 150px;margin: 15px" type="number" class="form-control" id="mobile" placeholder="Mobile no"></li>-->
-                        <li><input style="width: 150px;margin: 15px" type="text" class="form-control" name="email" id="email" placeholder="Email ID"></li>
+                        <li><input style="width: 150px;margin: 15px" type="email" class="form-control input-text validate-email required-entry" name="email" id="email" placeholder="Email ID"></li>
 
-                        <li><input style="width: 150px;margin: 15px" type="password" name="password" class="form-control" id="pass" placeholder="Password"></li>
-                        <li><input style="width: 150px;margin: 15px" type="password" name="confirmation" class="form-control" id="confirm" placeholder="Re-Enter Password"></li>
+                        <li><input style="width: 150px;margin: 15px" type="password" name="password" class="form-control input-text required-entry validate-password" id="pass" placeholder="Password"></li>
+                        <li><input style="width: 150px;margin: 15px" type="password" name="confirmation" class="form-control input-text required-entry validate-cpassword" id="confirm" placeholder="Re-Enter Password"></li>
                         <li><button style="margin: 15px" type="submit" class="btn btn-success">Register</button></li>
 
                     </ul>
@@ -453,4 +453,10 @@
           jQuery(".dropdown-menu-custom").hide();
       });
   */
+</script>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+    //]]>
 </script>
