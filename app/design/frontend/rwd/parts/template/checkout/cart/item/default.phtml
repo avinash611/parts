@@ -28,6 +28,7 @@
 $_item = $this->getItem();
 $isVisibleProduct = $_item->getProduct()->isVisibleInSiteVisibility();
 $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type::TYPE_BEFORE_ORDER_CONFIRM);
+$cart = Mage::getSingleton('checkout/cart')->getQuote();
 ?>
 <tr>
     <td><div style="float: left"> <img src="<?php echo $this->getProductThumbnail()->resize(180); ?>" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>"> </div>
@@ -47,7 +48,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
 
 
     </td>
-    <td>₹<?php echo $_item->getPrice()?></td>
+    <td>₹<?php echo $cart->getSubtotal()?></td>
     <td>3-Dec-1017</td>
     <td><button title="" type="button" onclick="setLocation('<?php echo  $this->getDeleteUrl() ?>');"
                 class="btn btn-success remove show_tip"

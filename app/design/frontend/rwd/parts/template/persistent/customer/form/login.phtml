@@ -32,7 +32,49 @@
  */
 /** @var $this Mage_Customer_Block_Form_Login */
 ?>
-<div class="account-login<?php if (!$this->helper('customer')->isRegistrationAllowed()) echo ' login-only' ?>">
+<?php
+$skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd/parts/images/';
+?>
+<div id="top-banner" style="background-color: #efefef;"> <img style="position: absolute" src="<?php echo $skinUrl."background.jpg"?>" width="100%" height="660">
+    <!--start-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4" style="background-color:#efefef;padding: 40px !important;margin-top: 200px !important;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;border-radius: 5px">
+                <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form" class="scaffold-form">
+                    <?php echo $this->getBlockHtml('formkey'); ?>
+                    <div class="form-group col-md-12">
+                        <label for="email-name">Email</label>
+                        <div class="input-group"> <span class="input-group-addon" style="background-color: #fd8b25"><i style="color: #ffffff" class="glyphicon glyphicon-user"></i></span>
+                            <input id="email" type="text" class="form-control required-entry validate-email" name="login[username]"  placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="mobile-name">Password</label>
+                        <div class="input-group"> <span class="input-group-addon" style="background-color: #fd8b25"><i style="color: #ffffff" class="glyphicon glyphicon-lock"></i></span>
+                            <input id="pass" type="password" class="form-control required-entry validate-password" name="login[password]"  placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label>
+                            <input name="remember" type="checkbox" value="Remember You">
+                            <?php echo $this->getChildHtml('persistent.remember.me'); ?>Remember You </label>
+                    </div>
+                    <div style="width: 100%">
+                    <button class="btn btn-success form-group col-md-6 " type="submit"  name="send" id="send2">Login</button>
+                    </div> <!--<div class="form-group col-md-6"> <a style="width: 100%" type="button" id="send2" name="send" class="btn btn-success">Login</a> </div>-->
+                    <div class="form-group col-md-6 text-center"> <a href="<?php echo $this->getForgotPasswordUrl() ?>" style="width: 100%">Forgot Password ?</a> </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    var dataForm = new VarienForm('login-form', true);
+    //]]>
+</script>
+<div  style="display:none" class="account-login<?php if (!$this->helper('customer')->isRegistrationAllowed()) echo ' login-only' ?>">
     <div class="page-title">
         <h1><?php if ($this->helper('customer')->isRegistrationAllowed()): ?>
                 <?php echo $this->__('Login or Create an Account') ?>

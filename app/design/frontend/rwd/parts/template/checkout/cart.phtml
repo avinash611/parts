@@ -32,7 +32,6 @@
  */
 ?>
 <?php $cart = Mage::getSingleton('checkout/cart')->getQuote();
-
 ?>
 
 <div class="container-fluid">
@@ -57,7 +56,7 @@
                     <tbody>
                     <?php foreach($this->getItems() as $_item): ?>
                         <?php echo $this->getItemHtml($_item) ?>
-                    <?php endforeach ?>
+                    <?php endforeach; ?>
                     </tbody>
                 </table>
                     <div> <a style="float: left;" href="<?php echo Mage::helper('core')->quoteEscape($this->getContinueShoppingUrl()) ?>"><i class="fa fa-arrow-left"></i>Continue Shopping</a> <a class="btn btn-success" onclick="window.location='<?php echo $this->getCheckoutUrl() ?>';" style="margin-bottom: 10px !important;float: right">Proceed to checkout</a> </div>
@@ -66,7 +65,7 @@
             <div class="col-md-4 priceSummary" style="padding: 20px !important;background-color: #fda929;color: #ffffff">
                 <h2>Price Summary</h2>
                 <hr>
-                <div class="totalSummary"> <a style="float: left" href="#">Total Price(<?php echo count($cart)?> items)</a> <a style="float: right" href="#">₹<?php echo $cart->getSubtotal()?></a> </div>
+                <div class="totalSummary"> <a style="float: left" href="#">Total Price(<?php echo $this->getItemsSummaryQty()  ?> items)</a> <a style="float: right" href="#">₹<?php echo $cart->getSubtotal()?></a> </div>
                 <br>
                 <br>
                 <div class="deliverySummary"> <a style="float: left" href="#">Delivery Charges</a> <a style="float: right" href="#">₹0</a> </div>

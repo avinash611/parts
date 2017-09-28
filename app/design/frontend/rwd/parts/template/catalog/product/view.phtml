@@ -63,9 +63,11 @@ $products = Mage::getModel("catalog/product")
                         <p style="float: left">(Rs. <?php echo $_helper->productAttribute($_product, $_product->getPrice(), 'price') ?> + Rs. 49 delivery charges)</p>
                     </div>
                     <br>
+                    <div class="text-left"> <a class="btn btn-success" href="javascript:void(0)" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                    <br>
                     <div class="prochild2"> <a><b>Sold By:</b> EURO</a> <br>
                         <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><b>6 more sellers</b> </a>
-                            <ul class="dropdown-menu" style="background-color: #ffffff;" role="menu">
+                            <ul class="dropdown-menu" style="background-color: #ffffff;display:none" role="menu">
                                 <div style="margin: 20px !important">
                                     <table style="color: #ffffff" class="table">
                                         <tbody style="color: #000">
@@ -81,6 +83,7 @@ $products = Mage::getModel("catalog/product")
                                             <td><a><b>Sold By:</b> EURO</a></td>
                                             <td><a class="btn btn-success" href="#" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a></td>
                                         </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
