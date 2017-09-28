@@ -31,7 +31,7 @@
  */
 
 ?>
-
+<?php $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."/frontend/rwd/parts/images/";?>
 <?php
     $_cartQty = $this->getSummaryCount();
     if(empty($_cartQty)) {
@@ -39,12 +39,39 @@
     }
 ?>
 
-<a href="<?php echo $this->helper('checkout/cart')->getCartUrl(); ?>" data-target-element="#header-cart" class="skip-link skip-cart <?php if($_cartQty <= 0): ?> no-count<?php endif; ?>">
+<li class="dropdown">
+    <?php if($_cartQty <= 0): ?>
+    <a  class="" data-toggle="" role="" aria-expanded="false"><img src="<?php echo $skinUrl.'cart.png'?>" height="25px" width="25px"> No items(<?php echo $_cartQty; ?>)</span></a>
+    <?php else:?>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img src="<?php echo $skinUrl.'cart.png'?>" height="25px" width="25px">Items in Cart (<?php echo $_cartQty; ?>)<span class="caret"></span></a>
+    <ul class="dropdown-menu" style="background-color: #202020;width: 500px !important" role="menu">
+        <div style="margin: 20px !important">
+            <h2 style="color: #ffffff">Items in cart</h2>
+            <table style="color: #ffffff" class="table">
+                <thead>
+                <tr>
+                    <th>Items</th>
+                    <th>Brand</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php echo $this->getChildHtml('minicart_content');?>
+                </tbody>
+            </table>
+            <div> <a href="<?php echo Mage::getUrl('')?>" style="float: left;color: #fff"><i class="fa fa-arrow-left"></i>Continue Shopping</a> <a class="btn btn-success" href="<?php echo Mage::getUrl('checkout/onepage/')?>" style="margin-bottom: 10px !important;float: right">Proceed to checkout</a> </div>
+        </div>
+    </ul>
+    <?php endif;?>
+</li>
+
+<a style="display: none" href="<?php echo $this->helper('checkout/cart')->getCartUrl(); ?>" data-target-element="#header-cart" class="skip-link skip-cart <?php if($_cartQty <= 0): ?> no-count<?php endif; ?>">
     <span class="icon"></span>
     <span class="label"><?php echo $this->__('Cart'); ?></span>
     <span class="count"><?php echo $_cartQty; ?></span>
 </a>
 
-<div id="header-cart" class="block block-cart skip-content">
+<div style="display: none" id="header-cart" class="block block-cart skip-content">
     <?php echo $this->getChildHtml('minicart_content');?>
 </div>
