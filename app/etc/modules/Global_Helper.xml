@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Global_Helper>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Global_Helper>
+    </modules>
+</config>

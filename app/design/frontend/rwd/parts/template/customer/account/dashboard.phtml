@@ -25,6 +25,8 @@
  */
 ?>
 <?php
+
+
 $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd/parts/images/';
 ?>
 <?php echo $this->getMessagesBlock()->toHtml() ?>
@@ -44,7 +46,7 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd
                 </div>
             </div>
             <div class="col-md-9 col-sm-8" style="border: 1px solid #efefef;padding: 30px 20px;background-color: #f8f8f8">
-                <form action="<?php echo $this->getUrl('customer/account/editPost') ?>" method="post" autocomplete="off" id="form-validate" class="scaffold-form" enctype="multipart/form-data">
+                <form action="<?php echo $this->getUrl('helper/customer/updateCustomer') ?>" method="post" autocomplete="off" id="form-validate" class="scaffold-form" enctype="multipart/form-data">
                     <?php echo $this->getBlockHtml('formkey'); ?>
                     <div class="form-group col-md-6">
                         <label for="first-name">First Name</label>
@@ -72,7 +74,7 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd
 
                     <div class="form-group col-md-6">
                         <label for="mobile-name">Mobile</label>
-                        <input type="mobile-name" class="form-control" id="mobile-name">
+                        <input type="text" name="mobile" value="<?php echo $this->escapeHtml($this->getCustomer()->getMobile()) ?>" class="form-control" id="mobile-name">
                     </div>
                     <br class="hidden-xs">
                     <br class="hidden-xs">
