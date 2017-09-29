@@ -33,7 +33,7 @@
 ?>
 <?php $cart = Mage::getSingleton('checkout/cart')->getQuote();
 ?>
-
+<?php echo $this->getMessagesBlock()->toHtml() ?>
 <div class="container-fluid">
     <div class="container" style="margin-top: 50px">
         <div class="row">

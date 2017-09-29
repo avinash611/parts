@@ -34,7 +34,7 @@
 <td><span class="media-left"> <img src="<?php echo $this->getProductThumbnail()->resize(50, 50)->setWatermarkSize('30x10'); ?>" alt="" style="width:50px !important;height:50px !important"> </span>
     <div class="media-body">
         <p style="font-size: 13px;color: #fff" class="media-heading1"><?php echo $this->escapeHtml($this->getProductName()) ?></p>
-        <p class="media-heading" style="color: #fd8b25">₹ <?php echo $cart->getSubtotal()?></p>
+        <p class="media-heading" style="color: #fd8b25">₹ <?php echo $_item->getPrice()?></p>
     </div></td>
 <td>Optimal</td>
 <td><?php echo $this->getQty()?></td>

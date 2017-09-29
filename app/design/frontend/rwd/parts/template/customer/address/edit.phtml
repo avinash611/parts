@@ -34,6 +34,7 @@
 <?php
 $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd/parts/images/';
 ?>
+<?php echo $this->getMessagesBlock()->toHtml() ?>
 <div class="container-fluid">
     <div class="container" style="margin-top: 50px">
         <div class="row">
@@ -46,16 +47,10 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd
                     <a href="<?php echo Mage::getUrl('sales/order/history')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> My Orders</a><br>
                     <a href="<?php echo Mage::getUrl('customer/account')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> My Account</a><br>
                     <a href="<?php echo Mage::getUrl('customer/account/edit')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> Settings</a><br>
-                    <a href="<?php echo Mage::getUrl('customer/address/new/')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> My Address</a><br>
+                    <a href="<?php echo Mage::getUrl('customer/address/index/')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> My Address</a><br>
                 </div>
             </div>
             <div class="col-md-9">
-                <div class="" style="border: 1px solid #efefef;padding: 0px 20px 20px 20px">
-                    <p style="text-align: left"><?php echo $this->escapeHtml($this->getCustomer()->getFirstname()) ?></p>
-                    <p style="text-align: left">Address</p>
-                    <div class="btn-group btn-group-inline"> <a href="#" class="btn btn-success">Edit</a> <a href="#" class="btn btn-success">Set As Default</a> <a href="#" class="btn btn-success">Delete</a> </div>
-                </div>
-                <a class="btn btn-success" href="#" style="margin-top: 10px !important;margin-bottom: 10px !important"><i class="fa fa-plus"></i> Add New Address</a>
                 <div class="newAddress" style="border: 1px solid #efefef;padding: 30px 20px;background-color: #f8f8f8;height: 480px !important">
                     <form action="<?php echo Mage::getUrl('customer/address/formPost') ?>" method="post" id="form-validate" class="scaffold-form" enctype="multipart/form-data">
                         <?php echo $this->getBlockHtml('formkey')?>
@@ -82,9 +77,13 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd
                         <div class="form-group col-md-6">
                             <label for="first-name">State</label>
                             <input type="first-name" name="region" class="form-control" id="first-name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="defaut-address">Use as My Default Address</label>
+                                <input type="checkbox" id="primary_billing" name="default_billing" value="1" title="Use as My Default Billing Address" class="checkbox">
 
                         </div>
-                        <input type="hidden" name="telephone" value="99999999" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Telephone')) ?>" class="input-text  <?php echo $this->helper('customer/address')->getAttributeValidationClass('telephone') ?>" id="telephone" />
+                        <input type="hidden" name="telephone" value="<?php echo $this->getCustomer()->getMobile()?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Telephone')) ?>" class="input-text  <?php echo $this->helper('customer/address')->getAttributeValidationClass('telephone') ?>" id="telephone" />
                         <input type="hidden" name="country_id" value="IN">
                         <div class="form-group col-md-2">
                             <button style="width: 100%" type="submit" class="btn btn-success">Save</button>

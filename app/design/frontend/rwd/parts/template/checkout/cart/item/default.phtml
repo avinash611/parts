@@ -48,7 +48,7 @@ $cart = Mage::getSingleton('checkout/cart')->getQuote();
 
 
     </td>
-    <td>₹<?php echo $cart->getSubtotal()?></td>
+    <td>₹<?php echo $_item->getRowTotal()?></td>
     <td>3-Dec-1017</td>
     <td><button title="" type="button" onclick="setLocation('<?php echo  $this->getDeleteUrl() ?>');"
                 class="btn btn-success remove show_tip"
