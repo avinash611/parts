@@ -64,7 +64,7 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd
                         </div>
                         <div class="form-group col-md-12">
                             <label for="email-name">Address</label>
-                            <textarea class="form-control" name="street[]" value="<?php echo $this->escapeHtml($this->getAddress()->getStreet(1)) ?>" rows="5" id="comment"></textarea>
+                            <textarea class="form-control" name="street[]"  rows="5" id="comment"><?php echo $this->escapeHtml($this->getAddress()->getStreet(1)) ?></textarea>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="first-name">City/District</label>
@@ -76,7 +76,7 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd
                         </div>
                         <div class="form-group col-md-6">
                             <label for="first-name">State</label>
-                            <input type="first-name" name="region" class="form-control" id="first-name">
+                            <input type="first-name" value="<?php echo $this->getAddress()->getRegion()?>" name="region" class="form-control" id="first-name">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="defaut-address">Use as My Default Address</label>
