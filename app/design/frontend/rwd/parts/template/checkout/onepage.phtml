@@ -24,6 +24,123 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<?php $cart = Mage::getSingleton('checkout/cart')->getQuote();?>
+<div class="container" style="margin-top: 50px !important">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background-color: #ffaa00">
+                        <h4 class="panel-title" style="color: white"> Delivery Address <a style="float: right" data-toggle="collapse" href="#collapseAddress"><i class="fa fa-pencil"></i> Change</a> </h4>
+                    </div>
+                    <div id="collapseAddress" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="" style="padding: 0px 20px 20px 20px">
+                                <p style="text-align: left"><?php echo $this->getCustomer()->getAddressById($this->getCustomer()->getId()); ?></p>
+                                <p style="text-align: left">Address</p>
+                                <div class="btn-group btn-group-inline"> <a href="#" class="btn btn-success">Edit</a> <a href="#" class="btn btn-success">Delete</a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+
+            </style>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background-color: #ffaa00">
+                        <h4 class="panel-title" style="color: white"> Order Summary <a style="float: right" data-toggle="collapse" href="#collapse1"><i class="fa fa-pencil"></i> Change</a> </h4>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse">
+                        <div class="panel-body" style="overflow-x:auto;">
+                            <table class="table" id="cart_table">
+                                <thead>
+                                <tr>
+                                    <th>Items</th>
+                                    <th>Brand</th>
+                                    <th>Qty</th>
+                                    <th>Total</th>
+                                    <th>Expected Delivery Date</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php foreach($this->getItems() as $_item): ?>
+                                <tr>
+                                    <td><div style="float: left"> <img src="images/part1.png" alt=""> </div>
+                                        <div style="float: right;margin-top: -15px  !important">
+                                            <p style="font-size: 13px;"><?php echo $this->getProductName() ?></p>
+                                            <p style="color: #fd8b25;font-size: 13px;">Seller: FairGround</p>
+                                        </div></td>
+                                    <td>Optimal</td>
+                                    <td><input style="width: 70px !important" type="number" class="form-control" id="no1"></td>
+                                    <td>₹2344</td>
+                                    <td>3-Dec-1017</td>
+                                    <td><button title="" type="button"
+                                                class="btn btn-success remove show_tip"
+                                                data-original-title="Remove from list"> <i class="fa fa-trash-o"></i> </button></td>
+                                </tr>
+                                <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background-color: #ffaa00">
+                        <h4 class="panel-title" style="color: white"> Make Payment <a style="float: right" data-toggle="collapse" href="#collapsePayment"><i class="fa fa-pencil-square-o"></i> Choose</a> </h4>
+                    </div>
+                    <div id="collapsePayment" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optradio">
+                                    Credit / Debit / Atm card</label>
+                            </div>
+                            <hr>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optradio">
+                                    Net Banking</label>
+                            </div>
+                            <hr>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optradio">
+                                    Cash On Delivery</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 priceSummary" style="padding: 20px !important;background-color: #fda929;color: #ffffff">
+            <h2>Price Summary</h2>
+            <hr>
+            <div class="totalSummary"> <a style="float: left" href="#">Total Price(<?php echo $cart->getItemsSummaryQty()  ?> items)</a> <a style="float: right" href="#">₹<?php echo $cart->getSubtotal()?></a> </div>
+            <br>
+            <br>
+            <?php if(($cart->getSubtotal()) > 500):?>
+                <div class="deliverySummary"> <a style="float: left" href="#">Delivery Charges</a> <a style="float: right" href="#">₹0</a> </div>
+            <?php else: ?>
+                <div class="deliverySummary"> <a style="float: left" href="#">Delivery Charges</a> <a style="float: right" href="#">₹30</a> </div>
+            <?php endif;?>
+            <br>
+            <hr>
+            <?php if(($cart->getSubtotal()) > 500):?>
+                <div class="amountSummary"> <a style="float: left" href="#">Amount Payable</a> <a style="float: right" href="#">₹<?php echo $cart->getGrandTotal()?></a> </div>
+
+            <?php else: ?>
+                <div class="amountSummary"> <a style="float: left" href="#">Amount Payable</a> <a style="float: right" href="#">₹<?php echo $cart->getGrandTotal() + 30?></a> </div>
+            <?php endif;?>
+            <br>
+        </div>
+    </div>
+</div>
+
 <div class="page-title">
     <h1><?php echo $this->__('Checkout') ?></h1>
 </div>

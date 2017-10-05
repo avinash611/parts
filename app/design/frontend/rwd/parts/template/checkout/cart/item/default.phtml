@@ -29,6 +29,8 @@ $_item = $this->getItem();
 $isVisibleProduct = $_item->getProduct()->isVisibleInSiteVisibility();
 $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type::TYPE_BEFORE_ORDER_CONFIRM);
 $cart = Mage::getSingleton('checkout/cart')->getQuote();
+$Date = Mage::getModel('core/date')->date('d-m-Y');
+
 ?>
 <tr>
     <td><div style="float: left"> <img src="<?php echo $this->getProductThumbnail()->resize(180); ?>" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>"> </div>
@@ -49,7 +51,7 @@ $cart = Mage::getSingleton('checkout/cart')->getQuote();
 
     </td>
     <td>₹<?php echo $_item->getRowTotal()?></td>
-    <td>3-Dec-1017</td>
+    <td><?php echo date('d-m-Y', strtotime($Date. ' + 1 days')); ?></td>
     <td><button title="" type="button" onclick="setLocation('<?php echo  $this->getDeleteUrl() ?>');"
                 class="btn btn-success remove show_tip"
                 data-original-title="Remove from list"> <i class="fa fa-trash-o"></i> </button></td>
