@@ -50,6 +50,7 @@
                             </div>
                         </form>
                     </li>
+                    <li><?php echo $this->getChildHtml('minicart_head'); ?></li>
                     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user-circle-o" style="font-size:20px"></i> Hello <?php echo $helper->getCustomer()->getFirstname() ?> <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
