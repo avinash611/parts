@@ -24,6 +24,28 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+
+<?php
+$qty = array();
+$tempArray = array();
+$productIdArray  = array();
+if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+
+    $orders= Mage::getModel('sales/order')->getCollection()->addAttributeToFilter('customer_id',Mage::getSingleton('customer/session')->getCustomer()->getId());
+    foreach($orders as $eachOrder){
+        $order = Mage::getModel("sales/order")->load($eachOrder->getId());
+
+        $items = $order->getAllVisibleItems();
+        foreach($items as $item):
+            $productIdArray[] = $item->getProductId();
+            $qty[] = $item->getQtyOrdered();
+        endforeach;
+    }
+}
+$customerPastOrderItems = $productIdArray;
+
+?>
+
 <?php
 $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd/parts/images/';
 ?>
@@ -69,39 +91,20 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd
                             </tr>
                             </thead>
                             <tbody style="background-color: #f6f6f6">
+                           <?php foreach($customerPastOrderItems as $key => $id):?>
+                                <?php $prodDataA = Mage::getModel('catalog/product')->load($id) ?>
                             <tr>
-                                <td><div class="col-md-8" style="margin-top: -15px !important"> <img style="float: left" src="images/products/product-img.png" width="30" height="30"/>
+                                <td><div class="col-md-8" style="margin-top: -15px !important"> <img style="float: left" src="<?php echo  $this->helper('catalog/image')->init($prodDataA, 'small_image')->keepFrame(true)->resize(300);?>" width="30" height="30"/>
                                         <div class="text" style="float: right">
-                                            <p>OIL FILTER FOR 100 GC</p>
+                                            <p><?php echo $prodDataA->getName()?></p>
                                             <p style="line-height: 1px">OPTIMAL</p>
                                         </div>
                                     </div></td>
-                                <td>1000</td>
-                                <td style="color: #fc6e21">Rs. 2045</td>
+                                <td><?php echo $qty[$key] ?></td>
+                                <td style="color: #fc6e21">Rs.<?php echo $prodDataA->getPrice()?></td>
                                 <td style="width: 100px !important"></td>
                             </tr>
-                            <tr>
-                                <td><div class="col-md-8" style="margin-top: -15px !important"> <img style="float: left" src="images/products/product-img.png" width="30" height="30"/>
-                                        <div class="text" style="float: right">
-                                            <p>OIL FILTER FOR 100 GC</p>
-                                            <p style="line-height: 1px">OPTIMAL</p>
-                                        </div>
-                                    </div></td>
-                                <td>1000</td>
-                                <td style="color: #fc6e21">Rs. 2045</td>
-                                <td style="width: 150px !important"><input class="form-control" id="disabledInput" type="text" placeholder="Total: 1200" disabled></td>
-                            </tr>
-                            <tr>
-                                <td><div class="col-md-8" style="margin-top: -15px !important"> <img style="float: left" src="images/products/product-img.png" width="30" height="30"/>
-                                        <div class="text" style="float: right">
-                                            <p>OIL FILTER FOR 100 GC</p>
-                                            <p style="line-height: 1px">OPTIMAL</p>
-                                        </div>
-                                    </div></td>
-                                <td>1000</td>
-                                <td style="color: #fc6e21">Rs. 2045</td>
-                                <td style="width: 100px !important"></td>
-                            </tr>
+                            <?php endforeach;?>
                             </tbody>
                         </table>
                     </div>

@@ -1,3 +1,36 @@
+
+<?php
+$tempArray = array();
+$productIdArray  = array();
+if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+
+    $orders= Mage::getModel('sales/order')->getCollection()->addAttributeToFilter('customer_id',Mage::getSingleton('customer/session')->getCustomer()->getId());
+    foreach($orders as $eachOrder){
+        $order = Mage::getModel("sales/order")->load($eachOrder->getId());
+
+        $items = $order->getAllVisibleItems();
+        foreach($items as $item):
+            $productIdArray[] = $item->getProductId();
+        endforeach;
+    }
+}
+$customerPastOrderItems = array_unique($productIdArray);
+
+?>
+
+
+
+<?php
+$storeId = Mage::app()->getStore()->getId();
+
+$_productCollection = Mage::getResourceModel('reports/product_collection')
+    ->addAttributeToSelect('*')
+    ->setStoreId($storeId)
+    ->addStoreFilter($storeId)
+    ->addViewsCount()
+    ->setPageSize(4)->load();
+?>
+
 <?php
 /* Load category by id*/
 $cat = Mage::getModel('catalog/category')->load(9);
@@ -18,69 +51,112 @@ $prod = Mage ::getModel("catalog/product")
     ->setPageSize(6)->load();
 
 ?>
+<?php if (Mage::getSingleton('customer/session')->isLoggedIn()) :?>
+<div class="container-fluid">
+    <div class="container"> <br>
+        <h2>Parts You Recently Searched</h2>
+        <div class="carousel slide" id="myCarousel">
+            <nav>
+                <ul class="control-box pager">
+                    <li><a data-slide="prev" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+                    <li><a data-slide="next" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                </ul>
+            </nav>
+            <!-- /.control-box -->
+            <div class="carousel-inner" style="margin-left: -20px">
+                <?php for($i=1; $i<=2;$i++): ?>
+                <?php if($i == 1):?>
+                <div class="item left active">
+                    <ul class="thumbnails">
+                        <?php foreach($_productCollection as $prodData):?>
+                        <li class="col-sm-3" style="">
+                            <div class="card" style="background-color: #efefef">
+                                <div class="card-custom"> <a href="<?php echo $prodData->getProductUrl()?>"><img class="cardimage" src="<?php echo  $this->helper('catalog/image')->init($prodData, 'small_image')->keepFrame(true)->resize(300);?>"" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="<?php echo $prodData->getProductUrl()?>"><h4 style="text-transform: uppercase" class="card-title text-center"><?php echo $prodData->getName()?></h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="<?php echo Mage::helper('checkout/cart')->getAddUrl($prodData)?>" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <?php endforeach;?>
+                    </ul>
+                </div>
+                <?php else:?>
+                <div class="item left next">
+                    <ul class="thumbnails">
+                        <?php foreach($_productCollection as $prodData):?>
+                            <li class="col-sm-3" style="">
+                                <div class="card" style="background-color: #efefef">
+                                    <div class="card-custom"> <a href="<?php echo $prodData->getProductUrl()?>"><img class="cardimage" src="<?php echo  $this->helper('catalog/image')->init($prodData, 'small_image')->keepFrame(true)->resize(300);?>"" alt=""></a>
+                                        <div class="card-block">
+                                            <a href="<?php echo $prodData->getProductUrl()?>"><h4 style="text-transform: uppercase" class="card-title text-center"><?php echo $prodData->getName()?></h4></a>
+                                            <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                            <div class="text-center"> <a class="btn btn-success" href="<?php echo Mage::helper('checkout/cart')->getAddUrl($prodData)?>" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        <?php endforeach;?>
+                    </ul>
+                </div>
+                <?php endif;?>
+                <?php endfor; ?>
+                <!-- /Slide2 -->
+            </div>
+        </div>
+        <!-- /#myCarousel -->
+    </div>
+    <!-- /.container -->
+</div>
+<div class="container-fluid" style="background-color: #efefef">
+    <div class="container"> <br>
+        <h2>Parts you bought in the past</h2>
+        <div class="carousel slide" id="myCarousel1">
+            <nav>
+                <ul class="control-box pager">
+                    <li><a data-slide="prev" href="#myCarousel1" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+                    <li><a data-slide="next" href="#myCarousel1" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                </ul>
+            </nav>
+            <!-- /.control-box -->
+            <div class="carousel-inner" style="margin-left: -20px">
+                <div class="item active">
+                    <ul class="thumbnails">
+                        <?php foreach($customerPastOrderItems as $id):?>
+                            <?php $prodDataA = Mage::getModel('catalog/product')->load($id) ?>
+                        <li class="col-sm-3">
+                            <div class="card" style="background-color: #ffffff">
+                                <div class="card-custom"> <a href="<?php echo $prodDataA->getProductUrl()?>"><img class="cardimage" src="<?php echo  $this->helper('catalog/image')->init($prodDataA, 'small_image')->keepFrame(true)->resize(300);?>" alt=""></a>
+                                    <div class="card-block">
+                                        <a href="<?php echo $prodDataA->getProductUrl()?>"><h4 style="text-transform: uppercase" class="card-title text-center"><?php echo $prodDataA->getName()?></h4></a>
+                                        <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
+                                        <div class="text-center"> <a class="btn btn-success" href="<?php echo Mage::helper('checkout/cart')->getAddUrl($prodDataA)?>" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <?php endforeach;?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /#myCarousel -->
+    </div>
+    <!-- /.container -->
+</div>
 
-
+<?php endif;?>
 
 <div class="container-fluid" style="background-color: #ffffff;">
     <div class="container mobile-parts">
         <h2 class="text-header" style="margin-bottom: 30px !important">Frequently searched parts</h2>
         <?php foreach($prod as $pr):?>
-            <!--<div class="col-md-3 media1"> <span class="media-left"> <img src="<?php /*echo $this->helper('catalog/image')->init($product, 'small_image')->keepFrame(true)->resize(300); */?>"  alt="" style="width:100px !important;height:100px !important"> </span>
-                <div class="media-body" style="border-right: 1px solid #000000">
-                    <p style="font-size: 13px" class="media-heading1"><?php /*echo $_helper->productAttribute($product, $product->getName() , 'name'); */?> </p>
-                    <p class="media-heading" style="color: #fd8b25">₹ <?php /*echo $_helper->productAttribute($product, $product->getPrice() , 'price'); */?></p>
-                    <div class="vdivider"></div>
-                </div>
-            </div>-->
             <div class="col-md-2 col-sm-2 cell"> <a href="<?php echo $pr->getProductUrl()?>"><img src="<?php echo  $this->helper('catalog/image')->init($pr, 'small_image')->keepFrame(true)->resize(300);?>" class="img-responsive"></a>
                 <p><?php echo $_helper->productAttribute($pr, $pr->getName() , 'name');?></p>
             </div>
         <?php endforeach;?>
-    <!--<div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php /*echo $skinUrl."ra1.png"*/?>" class="img-responsive"></a>
-        <p>Lubricants</p>
-    </div>
-    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php /*echo $skinUrl."ra2.png"*/?>" class="img-responsive"></a>
-        <p>Engine</p>
-    </div>
-    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php /*echo $skinUrl."ra3.png"*/?>" class="img-responsive"></a>
-        <p>Electric components</p>
-    </div>
-    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php /*echo $skinUrl."ra1.png"*/?>" class="img-responsive"></a>
-        <p>Lubricants</p>
-    </div>
-    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php /*echo $skinUrl."ra3.png"*/?>" class="img-responsive"></a>
-        <p>Electric components</p>
-    </div>
-    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php /*echo $skinUrl."ra2.png"*/?>" class="img-responsive"></a>
-        <p>Engine</p>
-    </div>
-    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php /*echo $skinUrl."ra5.png"*/?>" class="img-responsive"></a>
-        <p>Exhaust system</p>
-    </div>
-    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php /*echo $skinUrl."ra6.png"*/?>" class="img-responsive"></a>
-        <p>Suspension</p>
-    </div>
-    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php /*echo $skinUrl."ra1.png"*/?>" class="img-responsive"></a>
-        <p>Lubricants</p>
-    </div>
-    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php /*echo $skinUrl."ra4.png"*/?>" class="img-responsive"></a>
-        <p>Universal</p>
-    </div>
-    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php /*echo $skinUrl."ra5.png"*/?>" class="img-responsive"></a>
-        <p>Exhaust system</p>
-    </div>
-    <div class="col-md-2 col-sm-2 cell"> <a href="product-listing.html"><img src="<?php /*echo $skinUrl."ra1.png"*/?>" class="img-responsive"></a>
-        <p>Lubricants</p>
-    </div>-->
-  <!-- <?php /*foreach(explode(',',$subcats) as $subCatid):*/?>
-
-    <?php /*$_category = Mage::getModel('catalog/category')->load($subCatid);*/?>
-
-       <div class="col-md-2 col-sm-2 cell"> <a href="<?php /*echo $_category->getURL()*/?>"><img src="<?php /*echo $_category->getImageUrl()*/?>" class="img-responsive"></a>
-           <p><?php /*echo $_category->getName()*/?></p>
-       </div>
-
-    --><?php /*endforeach;*/?>
 
 </div>
 </div>
