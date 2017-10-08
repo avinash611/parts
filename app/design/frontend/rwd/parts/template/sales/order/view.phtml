@@ -24,9 +24,50 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<?php $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd/parts/images/';?>
+<div class="container-fluid">
+    <div class="container" style="margin-top: 50px">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <div class="userDetails" style="float: left;background-color: #fda929;width: 100%;margin-bottom: 30px !important">
+                    <div class="userProfile" style="float: left;"> <img src="<?php echo $skinUrl?>my-account.png" width="30" height="30" style="margin-bottom: 15px !important"/> </div>
+                    <div class="userProfile" style="float: right;padding:30px 50px;color: #ffffff"> <a href="#">Hello <b>Rohit</b></a> </div>
+                </div>
+                <div class="links">
+                    <a href="<?php echo Mage::getUrl('sales/order/history')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> My Orders</a><br>
+                    <a href="<?php echo Mage::getUrl('customer/account')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> My Account</a><br>
+                    <a href="<?php echo Mage::getUrl('customer/account/edit')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> Settings</a><br>
+                    <a href="<?php echo Mage::getUrl('customer/address/index/')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> My Address</a><br>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-9">
+                <!--<div class="row">
+                    <div class="col-md-2">
+                        <p>Caller Id: <a href="#">12345</a></p>
+                    </div>
+                    <div class="col-md-2">
+                        <button style="margin-top: 15px !important;background-color: #1479b3" class="btn btn-success" type="button"><i class="fa fa-map-marker"></i> Track</button>
+                    </div>
+                    <div class="col-md-2">
+                        <p style="text-align: left">Seller: <a style="color: #fc6e21" href="#">Fairground</a></p>
+                    </div>
+                    <div class="col-md-2 col-md-offset-4">
+                        <p>10:30pm,23/06/17</p>
+                    </div>
+                </div>-->
+                <?php echo $this->getChildHtml('order_items') ?>
 
-<div class="order-items order-details">
-    <?php if ($this->helper('giftmessage/message')->getIsMessagesAvailable('items', $this->getOrder())): ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--<div class="order-items order-details">
+    <?php /*if ($this->helper('giftmessage/message')->getIsMessagesAvailable('items', $this->getOrder())): */?>
         <script type="text/javascript">
             //<![CDATA[
             function giftMessageToogle(giftMessageIdentifier)
@@ -54,40 +95,40 @@
             }
             //]]>
         </script>
-    <?php endif; ?>
-    <?php $_order = $this->getOrder() ?>
-    <h2 class="table-caption"><?php echo $this->__('Items Ordered') ?>
-        <?php if ($_order->getTracksCollection()->count()) : ?>
-            <span class="separator">|</span> <a href="#" onclick="popWin('<?php echo $this->helper('shipping')->getTrackingPopupUrlBySalesModel($_order) ?>','trackorder','top=0,left=0,width=800,height=600,resizable=yes,scrollbars=yes'); return false;" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Track your order')) ?>"><?php echo $this->__('Track your order') ?></a>
-        <?php endif; ?>
+    <?php /*endif; */?>
+    <?php /*$_order = $this->getOrder() */?>
+    <h2 class="table-caption"><?php /*echo $this->__('Items Ordered') */?>
+        <?php /*if ($_order->getTracksCollection()->count()) : */?>
+            <span class="separator">|</span> <a href="#" onclick="popWin('<?php /*echo $this->helper('shipping')->getTrackingPopupUrlBySalesModel($_order) */?>','trackorder','top=0,left=0,width=800,height=600,resizable=yes,scrollbars=yes'); return false;" title="<?php /*echo Mage::helper('core')->quoteEscape($this->__('Track your order')) */?>"><?php /*echo $this->__('Track your order') */?></a>
+        <?php /*endif; */?>
     </h2>
 
-    <?php echo $this->getChildHtml('order_items') ?>
+    <?php /*echo $this->getChildHtml('order_items') */?>
 
-    <?php if($this->helper('giftmessage/message')->getIsMessagesAvailable('order', $_order) && $_order->getGiftMessageId()): ?>
+    <?php /*if($this->helper('giftmessage/message')->getIsMessagesAvailable('order', $_order) && $_order->getGiftMessageId()): */?>
         <div class="order-additional order-gift-message">
-            <h2 class="sub-title"><?php echo $this->__('Gift Message for This Order') ?></h2>
-            <?php $_giftMessage=$this->helper('giftmessage/message')->getGiftMessageForEntity($_order); ?>
+            <h2 class="sub-title"><?php /*echo $this->__('Gift Message for This Order') */?></h2>
+            <?php /*$_giftMessage=$this->helper('giftmessage/message')->getGiftMessageForEntity($_order); */?>
             <dl class="gift-message">
-                <dt><strong><?php echo $this->__('From:') ?></strong> <?php echo $this->escapeHtml($_giftMessage->getSender()) ?></dt>
-                <dt><strong><?php echo $this->__('To:') ?></strong> <?php echo $this->escapeHtml($_giftMessage->getRecipient()) ?></dt>
-                <dd><?php echo $this->helper('giftmessage/message')->getEscapedGiftMessage($_order) ?></dd>
+                <dt><strong><?php /*echo $this->__('From:') */?></strong> <?php /*echo $this->escapeHtml($_giftMessage->getSender()) */?></dt>
+                <dt><strong><?php /*echo $this->__('To:') */?></strong> <?php /*echo $this->escapeHtml($_giftMessage->getRecipient()) */?></dt>
+                <dd><?php /*echo $this->helper('giftmessage/message')->getEscapedGiftMessage($_order) */?></dd>
             </dl>
         </div>
-    <?php endif; ?>
-    <?php $_history = $this->getOrder()->getVisibleStatusHistory() ?>
-    <?php if (count($_history)): ?>
+    <?php /*endif; */?>
+    <?php /*$_history = $this->getOrder()->getVisibleStatusHistory() */?>
+    <?php /*if (count($_history)): */?>
         <div class="order-additional order-comments">
-            <h2 class="sub-title"><?php echo $this->__('About Your Order') ?></h2>
+            <h2 class="sub-title"><?php /*echo $this->__('About Your Order') */?></h2>
             <dl class="order-about">
-                <?php foreach ($_history as $_historyItem): ?>
-                    <dt><?php echo $this->formatDate($_historyItem->getCreatedAtStoreDate(), 'medium', true) ?></dt>
-                    <dd><?php echo $this->escapeHtml($_historyItem->getComment()) ?></dd>
-                <?php endforeach; ?>
+                <?php /*foreach ($_history as $_historyItem): */?>
+                    <dt><?php /*echo $this->formatDate($_historyItem->getCreatedAtStoreDate(), 'medium', true) */?></dt>
+                    <dd><?php /*echo $this->escapeHtml($_historyItem->getComment()) */?></dd>
+                <?php /*endforeach; */?>
             </dl>
         </div>
-    <?php endif; ?>
+    <?php /*endif; */?>
     <div class="buttons-set">
-        <p class="back-link"><a href="<?php echo $this->getBackUrl() ?>"><small>&laquo; </small><?php echo $this->getBackTitle() ?></a></p>
+        <p class="back-link"><a href="<?php /*echo $this->getBackUrl() */?>"><small>&laquo; </small><?php /*echo $this->getBackTitle() */?></a></p>
     </div>
-</div>
+</div>-->
