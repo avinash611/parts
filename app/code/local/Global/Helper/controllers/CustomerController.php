@@ -26,4 +26,5 @@ class Global_Helper_CustomerController extends Mage_Core_Controller_Front_Action
             $this->_redirectReferer();
         }
     }
+
 }

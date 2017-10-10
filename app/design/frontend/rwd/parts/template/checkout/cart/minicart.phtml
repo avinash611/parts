@@ -60,7 +60,12 @@
                 <?php echo $this->getChildHtml('minicart_content');?>
                 </tbody>
             </table>
-            <div> <a href="<?php echo Mage::getUrl('')?>" style="float: left;color: #fff"><i class="fa fa-arrow-left"></i>Continue Shopping</a> <a class="btn btn-success" href="<?php echo Mage::getUrl('checkout/onepage/')?>" style="margin-bottom: 10px !important;float: right">Proceed to checkout</a> </div>
+            <div> <a href="<?php echo Mage::getUrl('')?>" style="float: left;color: #fff"><i class="fa fa-arrow-left"></i>Continue Shopping</a>
+                <br>
+                <a href="<?php echo Mage::getUrl('checkout/cart')?>" style="float: right;color: #fff;margin-top: -20px">View Shopping Cart<i class="fa fa-arrow-right"></i></a>
+                </div>
+            <br>
+            <div><a class="btn btn-success" href="<?php echo Mage::getUrl('checkout/onepage/')?>" style="margin-bottom: 10px !important;float: right">Proceed to checkout</a> </div>
         </div>
     </ul>
     <?php endif;?>

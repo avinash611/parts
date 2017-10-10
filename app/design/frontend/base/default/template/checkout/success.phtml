@@ -24,9 +24,9 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<div class="page-title">
+<div class="page-title" style="text-align: center;background-color: #efefef;padding: 20px;color: #000000">
     <h1><?php echo $this->__('Your order has been received.') ?></h1>
-</div>
+
 <?php echo $this->getMessagesBlock()->toHtml() ?>
 <h2 class="sub-title"><?php echo $this->__('Thank you for your purchase!') ?></h2>
 
@@ -39,11 +39,12 @@
     <p><?php echo $this->__('You will receive an order confirmation email with details of your order and a link to track its progress.') ?></p>
 <?php if ($this->getCanViewOrder() && $this->getCanPrintOrder()) :?>
     <p>
-        <?php echo $this->__('Click <a href="%s" onclick="this.target=\'_blank\'">here to print</a> a copy of your order confirmation.', $this->getPrintUrl()) ?>
+        <?php echo $this->__('Click <a  style="color: blue;" href="%s" onclick="this.target=\'_blank\'"><i>here to print</i></a> a copy of your order confirmation.', $this->getPrintUrl()) ?>
         <?php echo $this->getChildHtml() ?>
     </p>
 <?php endif;?>
 <?php endif;?>
+
 
 <?php if ($this->getAgreementRefId()): ?>
     <p><?php echo $this->__('Your billing agreement # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getAgreementUrl()), $this->escapeHtml($this->getAgreementRefId())))?></p>
@@ -60,5 +61,6 @@
 <?php endif;?>
 
 <div class="buttons-set">
-    <button type="button" class="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Continue Shopping')) ?>" onclick="window.location='<?php echo $this->getUrl() ?>'"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+    <button type="button" class="button btn btn-success" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Continue Shopping')) ?>" onclick="window.location='<?php echo $this->getUrl() ?>'"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+</div>
 </div>

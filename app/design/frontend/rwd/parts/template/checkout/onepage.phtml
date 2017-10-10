@@ -24,6 +24,8 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<?php $cart = Mage::getSingleton('checkout/cart')->getQuote(); ?>
+
 <script type="text/javascript" src="<?php echo $this->getJsUrl('varien/accordion.js') ?>"></script>
 <script type="text/javascript" src="<?php echo $this->getSkinUrl('js/opcheckout.js') ?>"></script>
 <script type="text/javascript" src="<?php echo $this->getSkinUrl('js/opcheckout_rwd.js') ?>"></script>
@@ -52,8 +54,21 @@
     <?php endforeach ?>
 
             </div>
+        <div class="col-md-4 priceSummary" style="padding: 20px !important;background-color: #fda929;color: #ffffff">
+            <h2>Price Summary</h2>
+            <hr>
+            <div class="totalSummary"> <a style="float: left" href="#">Total Price(<?php echo $cart->getItemsCount()?> items)</a> <a style="float: right" href="#">₹<?php echo $cart->getSubtotal()?></a> </div>
+            <br>
+            <br>
+            <div class="deliverySummary"> <a style="float: left" href="#">Delivery Charges</a> <a style="float: right" href="#">₹0</a> </div>
+            <br>
+            <hr>
+            <div class="amountSummary"> <a style="float: left" href="#">Amount Payable</a> <a style="float: right" href="#">₹<?php echo $cart->getGrandTotal()?></a> </div>
+            <br>
+        </div>
         <?php echo $this->getChildHtml('checkout.progress.wrapper')?>
         </div>
+
 </div>
 
 

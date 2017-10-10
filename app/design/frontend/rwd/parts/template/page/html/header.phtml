@@ -44,7 +44,8 @@
                     <li>
                         <form class="navbar-form" role="search">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="search" name="q">
+                                <input type="text" class="form-control" name="<?php echo $catalogSearchHelper->getQueryParamName() ?>" value="<?php echo $catalogSearchHelper->getEscapedQueryText() ?>" placeholder="search" name="q">
+
                                 <div class="input-group-btn">
                                     <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
                                 </div>
@@ -52,7 +53,7 @@
                         </form>
                     </li>
                     <li><?php echo $this->getChildHtml('minicart_head'); ?></li>
-                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user-circle-o" style="font-size:20px"></i> Hello <?php echo $helper->getCustomer()->getFirstname() ?> <span class="caret"></span></a>
+                    <li class="dropdown customDrop"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user-circle-o" style="font-size:20px"></i> Hello <?php echo $helper->getCustomer()->getFirstname() ?> <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <button style="margin: 15px;width: 80%" type="button" onclick=setLocation("<?php echo Mage::getUrl('customer/account')?>") class="btn btn-success">My Account</button>
@@ -66,8 +67,14 @@
             </div>
             <!--/.nav-collapse -->
         </div>
+        <style>
+            .customDrop a:hover{
+                background-color: #ffffff;
+            }
+        </style>
         <!--/.container-fluid -->
     </nav>
+
     <?php if($this->getIsHomePage()):?>
         <div id="top-banner" style="background-color: #efefef;height: 820px"> <img src="<?php echo $skinUrl."banner-top.png"?>" width="100%">
             <!--start-->
@@ -76,6 +83,7 @@
                     <div class="col-xs-8 col-xs-offset-2">
                         <div class="input-group">
                             <div class="input-group-btn search-panel">
+
                                 <button style="height:50px;width:150px" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <span id="search_concept">SELECT A BRAND</span> <span class="caret"></span> </button>
                                 <ul id="custom-dropdown" class="dropdown-menu" role="menu">
                                     <li><a href="#contains">TVS</a></li>
@@ -84,7 +92,7 @@
                                 </ul>
                             </div>
                             <input type="hidden" name="search_param" value="all" id="search_param">
-                            <input style="height:50px" type="text" class="form-control" name="x" placeholder="Type the part name, part number or model name">
+                            <input style="height:50px" type="text" class="form-control" name="<?php echo $catalogSearchHelper->getQueryParamName() ?>" value="<?php echo $catalogSearchHelper->getEscapedQueryText() ?>" placeholder="Type the part name, part number or model name33">
           <span class="input-group-btn">
           <button style="height:50px;width: 150px" class="btn btn-success" type="button">SEARCH</button>
           </span> </div>

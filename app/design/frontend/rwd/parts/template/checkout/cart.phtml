@@ -68,19 +68,15 @@
                 <div class="totalSummary"> <a style="float: left" href="#">Total Price(<?php echo $cart->getItemsSummaryQty()  ?> items)</a> <a style="float: right" href="#">₹<?php echo $cart->getSubtotal()?></a> </div>
                 <br>
                 <br>
-                <?php if(($cart->getSubtotal()) > 500):?>
+
                     <div class="deliverySummary"> <a style="float: left" href="#">Delivery Charges</a> <a style="float: right" href="#">₹0</a> </div>
-                <?php else: ?>
-                    <div class="deliverySummary"> <a style="float: left" href="#">Delivery Charges</a> <a style="float: right" href="#">₹30</a> </div>
-                <?php endif;?>
+
                 <br>
                 <hr>
-                <?php if(($cart->getSubtotal()) > 500):?>
+
                 <div class="amountSummary"> <a style="float: left" href="#">Amount Payable</a> <a style="float: right" href="#">₹<?php echo $cart->getGrandTotal()?></a> </div>
 
-                <?php else: ?>
-                <div class="amountSummary"> <a style="float: left" href="#">Amount Payable</a> <a style="float: right" href="#">₹<?php echo $cart->getGrandTotal() + 30?></a> </div>
-                <?php endif;?>
+
                 <br>
             </div>
         </div>

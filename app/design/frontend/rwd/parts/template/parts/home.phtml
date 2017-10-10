@@ -21,14 +21,20 @@ $customerPastOrderItems = array_unique($productIdArray);
 
 
 <?php
-$storeId = Mage::app()->getStore()->getId();
+if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+    $_productCollection  = Mage::getSingleton('Mage_Reports_Block_Product_Viewed')->getItemsCollection()
+        ->addAttributeToSelect('*')
+        /*->setOrder('entity_id')*/
+        ->setPageSize(4)->load();
+}
+/*$storeId = Mage::app()->getStore()->getId();
 
 $_productCollection = Mage::getResourceModel('reports/product_collection')
     ->addAttributeToSelect('*')
     ->setStoreId($storeId)
     ->addStoreFilter($storeId)
     ->addViewsCount()
-    ->setPageSize(4)->load();
+    ->setPageSize(4)->load();*/
 ?>
 
 <?php
@@ -44,8 +50,7 @@ $products = Mage::getModel("catalog/product")
     ->setOrder('entity_id', 'DESC')
     ->setPageSize(3)->load();
 
-$prod = Mage ::getModel("catalog/product")
-->getCollection()
+$prod = Mage::getSingleton('Mage_Reports_Block_Product_Viewed')->getItemsCollection()
     ->addAttributeToSelect('*')
     ->setOrder('entity_id')
     ->setPageSize(6)->load();
@@ -55,18 +60,18 @@ $prod = Mage ::getModel("catalog/product")
 <div class="container-fluid">
     <div class="container"> <br>
         <h2>Parts You Recently Searched</h2>
-        <div class="carousel slide" id="myCarousel">
+        <div class="carousel slide" id="myCarousel2">
             <nav>
                 <ul class="control-box pager">
-                    <li><a data-slide="prev" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
-                    <li><a data-slide="next" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                    <li><a data-slide="prev" href="#myCarousel2" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+                    <li><a data-slide="next" href="#myCarousel2" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
                 </ul>
             </nav>
             <!-- /.control-box -->
             <div class="carousel-inner" style="margin-left: -20px">
-                <?php for($i=1; $i<=2;$i++): ?>
-                <?php if($i == 1):?>
-                <div class="item left active">
+                <?php /*for($i=1; $i<=2;$i++): */?>
+               <!-- --><?php /*if($i == 1):*/?>
+                <!--<div class="item active">-->
                     <ul class="thumbnails">
                         <?php foreach($_productCollection as $prodData):?>
                         <li class="col-sm-3" style="">
@@ -82,27 +87,27 @@ $prod = Mage ::getModel("catalog/product")
                         </li>
                         <?php endforeach;?>
                     </ul>
-                </div>
-                <?php else:?>
+               <!-- </div>-->
+                <?php /*else:*/?><!--
                 <div class="item left next">
                     <ul class="thumbnails">
-                        <?php foreach($_productCollection as $prodData):?>
+                        <?php /*foreach($_productCollection as $prodData):*/?>
                             <li class="col-sm-3" style="">
                                 <div class="card" style="background-color: #efefef">
-                                    <div class="card-custom"> <a href="<?php echo $prodData->getProductUrl()?>"><img class="cardimage" src="<?php echo  $this->helper('catalog/image')->init($prodData, 'small_image')->keepFrame(true)->resize(300);?>"" alt=""></a>
+                                    <div class="card-custom"> <a href="<?php /*echo $prodData->getProductUrl()*/?>"><img class="cardimage" src="<?php /*echo  $this->helper('catalog/image')->init($prodData, 'small_image')->keepFrame(true)->resize(300);*/?>"" alt=""></a>
                                         <div class="card-block">
-                                            <a href="<?php echo $prodData->getProductUrl()?>"><h4 style="text-transform: uppercase" class="card-title text-center"><?php echo $prodData->getName()?></h4></a>
+                                            <a href="<?php /*echo $prodData->getProductUrl()*/?>"><h4 style="text-transform: uppercase" class="card-title text-center"><?php /*echo $prodData->getName()*/?></h4></a>
                                             <p class="card-text text-center" style="color: #A9A9A9">OPTIMAL</p>
-                                            <div class="text-center"> <a class="btn btn-success" href="<?php echo Mage::helper('checkout/cart')->getAddUrl($prodData)?>" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
+                                            <div class="text-center"> <a class="btn btn-success" href="<?php /*echo Mage::helper('checkout/cart')->getAddUrl($prodData)*/?>" style="margin-bottom: 10px !important"> <i class="fa fa-shopping-cart fa-lg"></i> ADD TO CART</a> </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                        <?php endforeach;?>
+                        <?php /*endforeach;*/?>
                     </ul>
-                </div>
-                <?php endif;?>
-                <?php endfor; ?>
+                </div>-->
+               <!-- --><?php /*endif;*/?>
+               <!-- --><?php /*endfor; */?>
                 <!-- /Slide2 -->
             </div>
         </div>
@@ -149,7 +154,8 @@ $prod = Mage ::getModel("catalog/product")
 
 <?php endif;?>
 
-<div class="container-fluid" style="background-color: #ffffff;">
+<?php if (Mage::getSingleton('customer/session')->isLoggedIn()):?>
+<div style="display:none; class="container-fluid" style="background-color: #ffffff;">
     <div class="container mobile-parts">
         <h2 class="text-header" style="margin-bottom: 30px !important">Frequently searched parts</h2>
         <?php foreach($prod as $pr):?>
@@ -160,6 +166,19 @@ $prod = Mage ::getModel("catalog/product")
 
 </div>
 </div>
+<?php else: ?>
+    <div class="container-fluid" style="background-color: #ffffff;">
+    <div class="container mobile-parts">
+        <h2 class="text-header" style="margin-bottom: 30px !important">Frequently searched parts</h2>
+        <?php foreach($prod as $pr):?>
+            <div class="col-md-2 col-sm-2 cell"> <a href="<?php echo $pr->getProductUrl()?>"><img src="<?php echo  $this->helper('catalog/image')->init($pr, 'small_image')->keepFrame(true)->resize(300);?>" class="img-responsive"></a>
+                <p><?php echo $_helper->productAttribute($pr, $pr->getName() , 'name');?></p>
+            </div>
+        <?php endforeach;?>
+
+    </div>
+    </div>
+<?php  endif;?>
 <br>
 
 <div class="container-fluid" style="background-color: #ffffff;">

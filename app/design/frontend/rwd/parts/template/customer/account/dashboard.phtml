@@ -64,10 +64,10 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd
                         <label for="email-name">Gender</label>
                         <br>
                         <label class="radio-inline">
-                            <input type="radio" name="optradio">
+                            <input type="radio" name="optradio" value="Male" <?php echo($data["optradio"]== "Male" ?'checked="checked"':''); ?> />
                             Male </label>
                         <label class="radio-inline">
-                            <input type="radio" name="optradio">
+                            <input type="radio" name="optradio" value="Female" <?php echo($data["optradio"]== "female" ? 'checked="checked"':''); ?> />
                             Female </label>
                         <br><br>
                     </div>

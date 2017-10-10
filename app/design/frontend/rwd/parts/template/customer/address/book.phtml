@@ -53,19 +53,23 @@
             <div class="col-md-9">
 
                 <?php if($_pAddsses = $this->getAdditionalAddresses()): ?>
+                    <?php $i=1?>
                 <?php foreach($_pAddsses as $_address): ?>
+
                 <div class="" style="border: 1px solid #efefef;padding: 0px 20px 20px 20px">
                     <!--<p style="text-align: left"><?php /*echo $this->escapeHtml($this->getCustomer()->getFirstname()) */?></p>-->
-                    <p style="text-align: left"><?php echo $this->getAddressHtml($_address) ?></p>
-                    <div class="btn-group btn-group-inline"> <a href="<?php echo $this->getUrl('customer/address/edit', array('id'=>$_address->getId())) ?>" class="btn btn-success">Edit</a> <a href="javascript:void(0)" class="btn btn-success">Set As Default</a> <a href="javascript:void(0)" onclick="return deleteAddress('<?php echo $_address->getId() ?>');" class="btn btn-success">Delete</a> </div>
+                    <p style="text-align: left"><?php echo "Address ".$i.":";$i++;?><br><br><?php echo $this->getAddressHtml($_address) ?></p><br>
+                    <div> <a href="<?php echo $this->getUrl('customer/address/edit', array('id'=>$_address->getId())) ?>" class="btn btn-success">Edit</a> <a href="javascript:void(0)" class="btn btn-success">Set As Default</a> <a href="javascript:void(0)" onclick="return deleteAddress('<?php echo $_address->getId() ?>');" class="btn btn-success">Delete</a> </div>
                 </div>
+
                 <?php endforeach; ?>
+
                 <?php else: ?>
                 <p class="item empty">
                     <p><?php echo $this->__('You have no additional address entries in your address book.') ?></p>
                 </p>
                 <?php endif ?>
-                <a onclick="window.location='<?php echo $this->getAddAddressUrl() ?>';" class="btn btn-success" href="javascript:void(0)" style="margin-top: 10px !important;margin-bottom: 10px !important"><i class="fa fa-plus"></i> Add New Address</a>
+                <br><a onclick="window.location='<?php echo $this->getAddAddressUrl() ?>';" class="btn btn-success" href="javascript:void(0)" style="margin-top: 10px !important;margin-bottom: 10px !important"><i class="fa fa-plus"></i> Add New Address</a>
 
                 <div class="col-1 addresses-primary">
 
@@ -76,7 +80,7 @@
                                 <address>
                                     <?php echo $this->getAddressHtml(Mage::getSingleton('customer/session')->getCustomer()->getAddressById($_pAddsses)) ?>
                                 </address>
-                                <p><a href="<?php echo $this->getAddressEditUrl(Mage::getSingleton('customer/session')->getCustomer()->getAddressById($_pAddsses)) ?>"><?php echo $this->__('Change Billing Address') ?></a></p>
+                                <p><a href="<?php echo $this->getAddressEditUrl(Mage::getSingleton('customer/session')->getCustomer()->getAddressById($_pAddsses)) ?>"><i><?php echo $this->__('Change Billing Address') ?></i></a></p>
                             </li>
                         <?php else: ?>
                             <li class="item">
@@ -157,6 +161,7 @@
                 <address>
                     <?php echo $this->getAddressHtml($_address) ?>
                 </address>
+
                 <p><a href="<?php echo $this->getUrl('customer/address/edit', array('id'=>$_address->getId())) ?>"><?php echo $this->__('Edit Address') ?></a> <span class="separator">|</span> <a href="#" class="link-remove" onclick="return deleteAddress('<?php echo $_address->getId() ?>');"><?php echo $this->__('Delete Address') ?></a></p>
             </li>
             <?php endforeach; ?>

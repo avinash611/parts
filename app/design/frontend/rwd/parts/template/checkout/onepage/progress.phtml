@@ -25,19 +25,7 @@
  */
 ?>
 
-<?php $cart = Mage::getSingleton('checkout/cart')->getQuote(); ?>
-<div class="col-md-4 priceSummary" style="padding: 20px !important;background-color: #fda929;color: #ffffff">
-    <h2>Price Summary</h2>
-    <hr>
-    <div class="totalSummary"> <a style="float: left" href="#">Total Price(<?php echo $cart->getItemsCount()?> items)</a> <a style="float: right" href="#">₹<?php echo $cart->getSubtotal()?></a> </div>
-    <br>
-    <br>
-    <div class="deliverySummary"> <a style="float: left" href="#">Delivery Charges</a> <a style="float: right" href="#">₹0</a> </div>
-    <br>
-    <hr>
-    <div class="amountSummary"> <a style="float: left" href="#">Amount Payable</a> <a style="float: right" href="#">₹<?php echo $cart->getGrandTotal()?></a> </div>
-    <br>
-</div>
+
 <div style="display: none" class="block block-progress opc-block-progress">
     <div class="block-title">
         <strong><span><?php echo $this->__('Your Checkout Progress') ?></span></strong>
