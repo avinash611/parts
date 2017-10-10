@@ -129,8 +129,11 @@ $prod = Mage::getSingleton('Mage_Reports_Block_Product_Viewed')->getItemsCollect
             <div class="carousel-inner" style="margin-left: -20px">
                 <div class="item active">
                     <ul class="thumbnails">
+                        <?php $i=0 ?>
                         <?php foreach($customerPastOrderItems as $id):?>
+                            <?php if($i<=3):?>
                             <?php $prodDataA = Mage::getModel('catalog/product')->load($id) ?>
+
                         <li class="col-sm-3">
                             <div class="card" style="background-color: #ffffff">
                                 <div class="card-custom"> <a href="<?php echo $prodDataA->getProductUrl()?>"><img class="cardimage" src="<?php echo  $this->helper('catalog/image')->init($prodDataA, 'small_image')->keepFrame(true)->resize(300);?>" alt=""></a>
@@ -142,6 +145,8 @@ $prod = Mage::getSingleton('Mage_Reports_Block_Product_Viewed')->getItemsCollect
                                 </div>
                             </div>
                         </li>
+                            <?php $i++ ?>
+                            <?php endif; ?>
                         <?php endforeach;?>
                     </ul>
                 </div>
