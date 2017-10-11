@@ -60,5 +60,4 @@ class Global_Helper_AccountController extends Mage_Customer_AccountController {
     }
 
 
-
 }
