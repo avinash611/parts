@@ -42,9 +42,9 @@
             <div id="navbar6" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <form class="navbar-form" role="search">
+                        <form class="navbar-form" action="<?php echo $catalogSearchHelper->getResultUrl() ?>" role="search">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="<?php echo $catalogSearchHelper->getQueryParamName() ?>" value="<?php echo $catalogSearchHelper->getEscapedQueryText() ?>" placeholder="search" name="q">
+                                <input type="text" class="form-control" name="<?php echo $catalogSearchHelper->getQueryParamName() ?>" value="<?php echo $catalogSearchHelper->getEscapedQueryText() ?>" placeholder="search">
 
                                 <div class="input-group-btn">
                                     <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
@@ -76,6 +76,7 @@
     </nav>
 
     <?php if($this->getIsHomePage()):?>
+<form id="search_mini_form" action="<?php echo $catalogSearchHelper->getResultUrl() ?>" method="get">
         <div id="top-banner" style="background-color: #efefef;height: 820px"> <img src="<?php echo $skinUrl."banner-top.png"?>" width="100%">
             <!--start-->
             <div class="container img-runner2">
@@ -94,11 +95,12 @@
                             <input type="hidden" name="search_param" value="all" id="search_param">
                             <input style="height:50px" type="text" class="form-control" name="<?php echo $catalogSearchHelper->getQueryParamName() ?>" value="<?php echo $catalogSearchHelper->getEscapedQueryText() ?>" placeholder="Type the part name, part number or model name33">
           <span class="input-group-btn">
-          <button style="height:50px;width: 150px" class="btn btn-success" type="button">SEARCH</button>
+          <input style="height:50px;width: 150px" class="btn btn-success" type="submit" value="SEARCH"/>
           </span> </div>
                     </div>
                 </div>
             </div>
+            </form>
 
 
             <div id="slider2" class="img-runner" style="margin-bottom: 50px">
@@ -156,7 +158,7 @@
                         <input type="hidden" name="search_param" value="all" id="search_param">
                         <input style="height:50px" type="text" class="form-control" name="<?php echo $catalogSearchHelper->getQueryParamName() ?>" value="<?php echo $catalogSearchHelper->getEscapedQueryText() ?>" placeholder="Type the part name, part number or model name33">
           <span class="input-group-btn">
-          <button style="height:50px;width: 150px" class="btn btn-success" type="submit">SEARCH</button>
+          <input style="height:50px;width: 150px" class="btn btn-success" type="submit" value="SEARCH"/>
           </span> </div>
                 </div>
             </div>

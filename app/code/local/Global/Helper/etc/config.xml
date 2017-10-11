@@ -14,6 +14,13 @@
                     <frontName>helper</frontName>
                 </args>
             </YOUR_NEW_ROUTER_NAME_HERE>
+            <customer>
+                <args>
+                    <modules>
+                        <global_helper before="Mage_Customer">Global_Helper</global_helper>
+                    </modules>
+                </args>
+            </customer>
         </routers>
 
 
