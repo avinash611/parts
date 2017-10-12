@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Parts_Shipping>
+            <version>0.1.0</version>
+        </Parts_Shipping>
+    </modules>
+    <global>
+        <models>
+            <parts_shipping>
+                <class>Parts_Shipping_Model</class>
+                <resourceModel>parts_shipping_resource</resourceModel>
+            </parts_shipping>
+            <parts_shipping_resource>
+                <class>Parts_Shipping_Model_Resource</class>
+            </parts_shipping_resource>
+            <shipping>
+                <rewrite>
+                    <carrier_flatrate>Parts_Shipping_Model_Shipping_Carrier_Flatrate</carrier_flatrate>
+                </rewrite>
+            </shipping>
+        </models>
+        <blocks>
+            <parts_shipping>
+                <class>Parts_Shipping_Block</class>
+            </parts_shipping>
+        </blocks>
+        <helpers>
+            <parts_shipping>
+                <class>Parts_Shipping_Helper</class>
+            </parts_shipping>
+        </helpers>
+    </global>
+</config>

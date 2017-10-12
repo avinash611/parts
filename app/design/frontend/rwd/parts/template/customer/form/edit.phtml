@@ -26,6 +26,8 @@
 ?>
 <?php
 $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd/parts/images/';
+$mediaUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'profile/';
+$customer= Mage::getModel('customer/customer')->load($this->getCustomer()->getId());
 ?>
 <?php echo $this->getMessagesBlock()->toHtml() ?>
 <div class="container-fluid">
@@ -33,7 +35,7 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd
         <div class="row">
             <div class="col-md-3 col-sm-3">
                 <div class="userDetails" style="float: left;background-color: #fda929;width: 100%;margin-bottom: 30px !important">
-                    <div class="userProfile" style="float: left;"> <img src="<?php echo $skinUrl."my-account.png" ?>" width="30" height="30" style="margin-bottom: 15px !important"/> </div>
+                    <div class="userProfile" style="float: left;"> <img src="<?php if($customer->getProfileImage()){echo $mediaUrl."".$customer->getProfileImage();}else{echo $skinUrl."my-account.png";}?>" width="30" height="30" style="margin-bottom: 15px !important"/> </div>
                     <div class="userProfile" style="float: right;padding:30px 50px;color: #ffffff"> <a href="#">Hello <b><?php echo $this->escapeHtml($this->getCustomer()->getFirstname()) ?></b></a> </div>
                 </div>
                 <div class="links">

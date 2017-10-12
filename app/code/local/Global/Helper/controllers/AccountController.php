@@ -10,53 +10,86 @@ require_once 'Mage/Customer/controllers/AccountController.php';
 
 class Global_Helper_AccountController extends Mage_Customer_AccountController {
 
-    /**
-     * Login post action
-     */
-    public function loginPostAction()
+    protected function _loginPostRedirect()
     {
-        if (!$this->_validateFormKey()) {
-            $this->_redirect('*/*/');
-            return;
-        }
-
-        if ($this->_getSession()->isLoggedIn()) {
-            $this->_redirect('*/*/');
-            return;
-        }
         $session = $this->_getSession();
 
-        if ($this->getRequest()->isPost()) {
-            $login = $this->getRequest()->getPost('login');
-            if (!empty($login['username']) && !empty($login['password'])) {
-                try {
-                    $session->login($login['username'], $login['password']);
-                    if ($session->getCustomer()->getIsJustConfirmed()) {
-                        $this->_welcomeCustomer($session->getCustomer(), true);
+        if (!$session->getBeforeAuthUrl() || $session->getBeforeAuthUrl() == Mage::getBaseUrl()) {
+            Mage::log('a');
+            // Set default URL to redirect customer to
+            $session->setBeforeAuthUrl($this->_getHelper('customer')->getAccountUrl());
+            // Redirect customer to the last page visited after logging in
+            if ($session->isLoggedIn()) {
+                Mage::log('b');
+                if (!Mage::getStoreConfigFlag(
+                    Mage_Customer_Helper_Data::XML_PATH_CUSTOMER_STARTUP_REDIRECT_TO_DASHBOARD
+                )) {
+                    Mage::log('c');
+                    $referer = $this->getRequest()->getParam(Mage_Customer_Helper_Data::REFERER_QUERY_PARAM_NAME);
+                    if ($referer) {
+                        Mage::log('d');
+                        // Rebuild referer URL to handle the case when SID was changed
+                        $referer = $this->_getModel('core/url')
+                            ->getRebuiltUrl( $this->_getHelper('core')->urlDecodeAndEscape($referer));
+                        if ($this->_isUrlInternal($referer)) {
+                            Mage::log('e');
+                            $session->setBeforeAuthUrl($referer);
+                        }
                     }
-                } catch (Mage_Core_Exception $e) {
-                    switch ($e->getCode()) {
-                        case Mage_Customer_Model_Customer::EXCEPTION_EMAIL_NOT_CONFIRMED:
-                            $value = $this->_getHelper('customer')->getEmailConfirmationUrl($login['username']);
-                            $message = $this->_getHelper('customer')->__('This account is not confirmed. <a href="%s">Click here</a> to resend confirmation email.', $value);
-                            break;
-                        case Mage_Customer_Model_Customer::EXCEPTION_INVALID_EMAIL_OR_PASSWORD:
-                            $message = $e->getMessage();
-                            break;
-                        default:
-                            $message = $e->getMessage();
-                    }
-                    $session->addError($message);
-                    $session->setUsername($login['username']);
-                } catch (Exception $e) {
-                    // Mage::logException($e); // PA DSS violation: this exception log can disclose customer password
+                } else if ($session->getAfterAuthUrl()) {
+                    Mage::log('f');
+                    $session->setBeforeAuthUrl($session->getAfterAuthUrl(true));
                 }
             } else {
-                $session->addError($this->__('Login and password are required.'));
+                Mage::log('g');
+                $session->setBeforeAuthUrl( $this->_getHelper('customer')->getLoginUrl());
+            }
+        } else if ($session->getBeforeAuthUrl() ==  $this->_getHelper('customer')->getLogoutUrl()) {
+            Mage::log('h');
+            $session->setBeforeAuthUrl( $this->_getHelper('customer')->getDashboardUrl());
+        } else {
+            Mage::log('i');
+            if (!$session->getAfterAuthUrl()) {
+                Mage::log($session->getBeforeAuthUrl());
+                if($session->getBeforeAuthUrl() == Mage::getUrl('customer/account/index')) {
+                    $session->setAfterAuthUrl(Mage::getUrl(''));
+                }else{
+                    $session->setAfterAuthUrl($session->getBeforeAuthUrl());
+                }
+            }
+            if ($session->isLoggedIn()) {
+                Mage::log('k');
+                $session->setBeforeAuthUrl($session->getAfterAuthUrl(true));
             }
         }
+        $this->_redirectUrl($session->getBeforeAuthUrl(true));
+    }
 
-        $this->_redirect('');
+
+    protected function _successProcessRegistration(Mage_Customer_Model_Customer $customer)
+    {
+        $session = $this->_getSession();
+        if ($customer->isConfirmationRequired()) {
+            /** @var $app Mage_Core_Model_App */
+            $app = $this->_getApp();
+            /** @var $store  Mage_Core_Model_Store*/
+            $store = $app->getStore();
+            $customer->sendNewAccountEmail(
+                'confirmation',
+                $session->getBeforeAuthUrl(),
+                $store->getId(),
+                $this->getRequest()->getPost('password')
+            );
+            $customerHelper = $this->_getHelper('customer');
+            $session->addSuccess($this->__('Account confirmation is required. Please, check your email for the confirmation link. To resend the confirmation email please <a href="%s">click here</a>.',
+                $customerHelper->getEmailConfirmationUrl($customer->getEmail())));
+            $url = $this->_getUrl('*/*/index', array('_secure' => true));
+        } else {
+            $session->setCustomerAsLoggedIn($customer);
+            $url = $this->_welcomeCustomer($customer);
+        }
+        $this->_redirectSuccess(Mage::getUrl('customer/account/index/'));
+        return $this;
     }
 
 

@@ -28,6 +28,8 @@
 
 
 $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd/parts/images/';
+$mediaUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'profile/';
+$customer= Mage::getModel('customer/customer')->load($this->getCustomer()->getId());
 ?>
 <?php echo $this->getMessagesBlock()->toHtml() ?>
 <div class="container-fluid">
@@ -35,7 +37,7 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd
         <div class="row">
             <div class="col-md-3 col-sm-3">
                 <div class="userDetails" style="float: left;background-color: #fda929;width: 100%;margin-bottom: 30px !important">
-                    <div class="userProfile" style="float: left;"> <img src="<?php echo $skinUrl."my-account.png" ?>" width="30" height="30" style="margin-bottom: 15px !important"/> </div>
+                    <div class="userProfile" style="float: left;"> <img src="<?php if($customer->getProfileImage()){echo $mediaUrl."".$customer->getProfileImage();}else{echo $skinUrl."my-account.png";}?>" width="30" height="30" style="margin-bottom: 15px !important"/> </div>
                     <div class="userProfile" style="float: right;padding:30px 50px;color: #ffffff"> <a href="#">Hello <b><?php echo $this->escapeHtml($this->getCustomer()->getFirstname()) ?></b></a> </div>
                 </div>
                 <div class="links">
@@ -46,7 +48,8 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd
                 </div>
             </div>
             <div class="col-md-9 col-sm-8" style="border: 1px solid #efefef;padding: 30px 20px;background-color: #f8f8f8">
-                <form action="<?php echo $this->getUrl('helper/customer/updateCustomer') ?>" method="post" autocomplete="off" id="form-validate" class="scaffold-form" enctype="multipart/form-data">
+                <form action="<?php echo $this->getUrl('helper/customer/updateCustomer') ?>"
+                      method="post" autocomplete="off" id="form-validate" class="scaffold-form" enctype="multipart/form-data">
                     <?php echo $this->getBlockHtml('formkey'); ?>
                     <div class="form-group col-md-6">
                         <label for="first-name">First Name</label>
@@ -76,6 +79,10 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd
                     <div class="form-group col-md-6">
                         <label for="mobile-name">Mobile</label>
                         <input type="text" name="mobile" value="<?php echo $this->escapeHtml($this->getCustomer()->getMobile()) ?>" class="form-control" id="mobile-name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="-name">Upload Profile Image</label>
+                        <input type="file" name="filename"  class="form-control">
                     </div>
                     <br class="hidden-xs">
                     <br class="hidden-xs">
