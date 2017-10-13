@@ -32,7 +32,13 @@
 <?php $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."/frontend/rwd/parts/images/";?>
 <?php $helper = Mage::helper('customer'); ?>
 <?php $catalogSearchHelper =  $this->helper('catalogsearch');?>
-
+<style>
+    .validation-advice {
+        padding-left: 17px;
+        color: #ff1a1a;
+        font-size: 12px;
+    }
+</style>
 <?php if ($helper->isLoggedIn() ): ?>
     <nav class="navbar navbar-default navbar-fixed-top navbarNew">
         <div class="container">
@@ -184,8 +190,8 @@
         <div id="navbar6" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo Mage::getUrl('products.html')?>">Click here to see products</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Now here? Sign Up<span class="caret"></span></a>
+                <li id="signupmenu" class="dropdown">
+                    <a href="javascript:void(0)" class="dropdown-toggle signup" >Now here? Sign Up<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
                         <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
@@ -196,7 +202,10 @@
 
                         <li><input style="width: 150px;margin: 15px" type="password" name="password" class="form-control input-text required-entry validate-password" id="pass" placeholder="Password"></li>
                         <li><input style="width: 150px;margin: 15px" type="password" name="confirmation" class="form-control input-text required-entry validate-cpassword" id="confirm" placeholder="Re-Enter Password"></li>
-                        <li><button style="margin: 15px" type="submit" class="btn btn-success">Register</button></li>
+                        <li style="padding-left: 21px;" class="btn-signup">
+                        <button  type="submit" class="btn btn-success">Register</button>
+                        <button  type="button" class="btn btn-success close-btn">Close</button>
+                        </li>
                         <?php /*Mage::getSingleton('core/session')->addError("")*/?>
                     </ul>
                 </li>
@@ -462,7 +471,12 @@
     jQuery(".dropdown-menu-customise").on("click", function(event){
         jQuery(".dropdown-menu-customise").hide();
     });
-
+jQuery(".signup").on("click",function(e){
+    jQuery("#signupmenu").addClass('open');
+    });
+    jQuery(".close-btn").on("click",function(e){
+        jQuery("#signupmenu").removeClass('open');
+    });
 
 
     /*  jQuery(".dropdown-custom").on('click', function(){
