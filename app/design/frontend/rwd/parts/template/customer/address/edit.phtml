@@ -34,7 +34,7 @@
 <?php
 $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd/parts/images/';
 $mediaUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'profile/';
-$customer= Mage::getModel('customer/customer')->load($this->getCustomer()->getId());
+$customer = Mage::getModel('customer/customer')->load($this->getCustomer()->getId());
 ?>
 <?php echo $this->getMessagesBlock()->toHtml() ?>
 <div class="container-fluid">

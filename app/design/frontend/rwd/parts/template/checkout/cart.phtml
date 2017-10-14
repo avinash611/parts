@@ -33,6 +33,15 @@
 ?>
 <?php $cart = Mage::getSingleton('checkout/cart')->getQuote();
 ?>
+<?php
+
+if($cart->getGrandTotal() < 500)
+{
+    $shippingPrice = 30;
+}else{
+    $shippingPrice = 0;
+}
+?>
 <?php echo $this->getMessagesBlock()->toHtml() ?>
 <div class="container-fluid">
     <div class="container" style="margin-top: 50px">
@@ -69,12 +78,12 @@
                 <br>
                 <br>
 
-                    <div class="deliverySummary"> <a style="float: left" href="#">Delivery Charges</a> <a style="float: right" href="#">₹0</a> </div>
+                    <div class="deliverySummary"> <a style="float: left" href="#">Delivery Charges</a> <a style="float: right" href="#"><?php if(!$cart->getShippingAddress()->getShippingAmount()){echo $shippingPrice;}else{echo $cart->getShippingAddress()->getShippingAmount();}?></a> </div>
 
                 <br>
                 <hr>
 
-                <div class="amountSummary"> <a style="float: left" href="#">Amount Payable</a> <a style="float: right" href="#">₹<?php echo $cart->getGrandTotal()?></a> </div>
+                <div class="amountSummary"> <a style="float: left" href="#">Amount Payable</a> <a style="float: right" href="#">₹<?php if(!$cart->getShippingAddress()->getShippingAmount()){echo $cart->getGrandTotal()+$shippingPrice;}else{ echo $cart->getShippingAddress()->getShippingAmount();}?></a> </div>
 
 
                 <br>

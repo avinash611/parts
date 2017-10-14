@@ -31,7 +31,7 @@
 ?>
 <?php $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."/frontend/rwd/parts/images/";?>
 <?php $helper = Mage::helper('customer'); ?>
-<?php $catalogSearchHelper =  $this->helper('catalogsearch');?>
+<?php $catalogSearchHelper =  $this->helper('catalogsearch'); ?>
 <style>
     .validation-advice {
         padding-left: 17px;
@@ -39,7 +39,7 @@
         font-size: 12px;
     }
 </style>
-<?php if ($helper->isLoggedIn() ): ?>
+<?php if ($helper->isLoggedIn()) : ?>
     <nav class="navbar navbar-default navbar-fixed-top navbarNew">
         <div class="container">
             <div class="navbar-header">

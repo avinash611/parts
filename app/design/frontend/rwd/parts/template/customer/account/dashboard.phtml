@@ -52,15 +52,15 @@ $customer= Mage::getModel('customer/customer')->load($this->getCustomer()->getId
                       method="post" autocomplete="off" id="form-validate" class="scaffold-form" enctype="multipart/form-data">
                     <?php echo $this->getBlockHtml('formkey'); ?>
                     <div class="form-group col-md-6">
-                        <label for="first-name">First Name</label>
-                        <input type="first-name" name="firstname" value="<?php echo $this->escapeHtml($this->getCustomer()->getFirstname()) ?>" class="form-control" id="first-name">
+                        <label for="first-name">First Name*</label>
+                        <input type="first-name" name="firstname" value="<?php echo $this->escapeHtml($this->getCustomer()->getFirstname()) ?>" class="form-control required-entry" id="first-name">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="last-name">Last Name</label>
+                        <label for="last-name">Last Name*</label>
                         <input type="last-name" name="lastname" value="<?php echo $this->escapeHtml($this->getCustomer()->getLastname()) ?>" class="form-control" id="last-name">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="email-name">Email</label>
+                        <label for="email-name">Email*</label>
                         <input type="email-name" name="email" value="<?php echo $this->escapeHtml($this->getCustomer()->getEmail()) ?>" class="form-control" id="email-name">
                     </div>
                     <div class="form-group col-md-6">
@@ -77,8 +77,8 @@ $customer= Mage::getModel('customer/customer')->load($this->getCustomer()->getId
                     </div>
 
                     <div class="form-group col-md-6">
-                        <label for="mobile-name">Mobile</label>
-                        <input type="text" name="mobile" value="<?php echo $this->escapeHtml($this->getCustomer()->getMobile()) ?>" class="form-control" id="mobile-name">
+                        <label for="mobile-name">Mobile*</label>
+                        <input type="text" name="mobile" value="<?php echo $this->escapeHtml($this->getCustomer()->getMobile()) ?>" class="form-control required-entry" id="mobile-name">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="-name">Upload Profile Image</label>
@@ -106,6 +106,12 @@ $customer= Mage::getModel('customer/customer')->load($this->getCustomer()->getId
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    //<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+
+    //]]>
+</script>
 <!--<div style="display:none" class="dashboard">
     <div class="page-title">
         <h1><?php /*echo $this->__('My Dashboard') */?></h1>

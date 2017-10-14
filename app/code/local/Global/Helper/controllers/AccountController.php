@@ -15,24 +15,24 @@ class Global_Helper_AccountController extends Mage_Customer_AccountController {
         $session = $this->_getSession();
 
         if (!$session->getBeforeAuthUrl() || $session->getBeforeAuthUrl() == Mage::getBaseUrl()) {
-            Mage::log('a');
+
             // Set default URL to redirect customer to
             $session->setBeforeAuthUrl($this->_getHelper('customer')->getAccountUrl());
             // Redirect customer to the last page visited after logging in
             if ($session->isLoggedIn()) {
-                Mage::log('b');
+
                 if (!Mage::getStoreConfigFlag(
                     Mage_Customer_Helper_Data::XML_PATH_CUSTOMER_STARTUP_REDIRECT_TO_DASHBOARD
                 )) {
-                    Mage::log('c');
+
                     $referer = $this->getRequest()->getParam(Mage_Customer_Helper_Data::REFERER_QUERY_PARAM_NAME);
                     if ($referer) {
-                        Mage::log('d');
+
                         // Rebuild referer URL to handle the case when SID was changed
                         $referer = $this->_getModel('core/url')
                             ->getRebuiltUrl( $this->_getHelper('core')->urlDecodeAndEscape($referer));
                         if ($this->_isUrlInternal($referer)) {
-                            Mage::log('e');
+
                             $session->setBeforeAuthUrl($referer);
                         }
                     }
@@ -41,14 +41,14 @@ class Global_Helper_AccountController extends Mage_Customer_AccountController {
                     $session->setBeforeAuthUrl($session->getAfterAuthUrl(true));
                 }
             } else {
-                Mage::log('g');
+
                 $session->setBeforeAuthUrl( $this->_getHelper('customer')->getLoginUrl());
             }
         } else if ($session->getBeforeAuthUrl() ==  $this->_getHelper('customer')->getLogoutUrl()) {
-            Mage::log('h');
+
             $session->setBeforeAuthUrl( $this->_getHelper('customer')->getDashboardUrl());
         } else {
-            Mage::log('i');
+
             if (!$session->getAfterAuthUrl()) {
                 Mage::log($session->getBeforeAuthUrl());
                 if($session->getBeforeAuthUrl() == Mage::getUrl('customer/account/index')) {
@@ -58,7 +58,7 @@ class Global_Helper_AccountController extends Mage_Customer_AccountController {
                 }
             }
             if ($session->isLoggedIn()) {
-                Mage::log('k');
+
                 $session->setBeforeAuthUrl($session->getAfterAuthUrl(true));
             }
         }
