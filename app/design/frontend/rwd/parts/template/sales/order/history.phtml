@@ -29,7 +29,7 @@
 <?php
 $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'/frontend/rwd/parts/images/' ;
 $mediaUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'profile/' ;
-$customer = Mage::getModel('customer/customer')->load($this->getCustomer()->getId())
+$customer = Mage::getModel('customer/customer')->load(Mage::getSingleton('customer/session')->getCustomer()->getId())
 ?>
 <div class="container-fluid">
     <div class="container" style="margin-top: 50px">
@@ -37,7 +37,7 @@ $customer = Mage::getModel('customer/customer')->load($this->getCustomer()->getI
             <div class="col-md-3 col-sm-3">
                 <div class="userDetails" style="float: left; background-color: #fda929; width: 100%; margin-bottom: 30px !important">
                     <div class="userProfile" style="float: left;"> <img src="<?php if($customer->getProfileImage()){ echo $mediaUrl."".$customer->getProfileImage(); }else{ echo $skinUrl."my-account.png"; } ?>" width="30" height="30" style="margin-bottom: 15px !important"/> </div>
-                    <div class="userProfile" style="float: right;padding:30px 50px;color: #ffffff"> <a href="#">Hello <b><?php echo $this->escapeHtml($this->getCustomer()->getFirstname()) ?></b></a> </div>
+                    <div class="userProfile" style="float: right;padding:30px 50px;color: #ffffff"> <a href="#">Hello <b><?php echo $this->escapeHtml($customer->getFirstname()) ?></b></a> </div>
                 </div>
                 <div class="links">
                     <a href="<?php echo Mage::getUrl('sales/order/history')?>"><i style="margin-bottom: 10px !important" class="fa fa-arrow-right"></i> My Orders</a><br>
